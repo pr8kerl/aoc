@@ -1,0 +1,22 @@
+{
+  "src":		"src",
+  "dest":		"_site",
+  "assets": "_site/addons/assets",
+  "data":		"<%= site.src %>/data",
+  "date":		"<%= new Date() %>",
+  "styles":	"<%= site.src %>/styles",
+  "content":	"<%= site.src %>/content",
+  "plugins":	[
+						"assemble-contrib-permalinks",
+						"assemble-contrib-anchors",
+						"assemble-contrib-toc"
+  ],
+  "templates":	"<%= site.src %>/templates",
+  "pages":		"<%= site.templates %>/pages",
+  "partials":	"<%= site.templates %>/partials",
+  "layouts":	"<%= site.templates %>/layouts",
+  "markedtemplates":	"<%= site.templates %>/marked",
+  
+  "title":	"MYOB Add-On Centre",
+  "description":	"Great 3rd party add-on tools to augment MYOB Business Management Software."
+}

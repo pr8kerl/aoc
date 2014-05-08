@@ -1,0 +1,34 @@
+<div class="span3 main-sidebar">
+              <div class="accordion  accordion-group" id="accordion2" style="padding: 0;">
+                <a class="accordion-toggle nav-header" href="/addons/">Home</a> 
+                <a class="accordion-toggle nav-header line" href="/addons/latest/">Latest Add-Ons</a> 
+                <a class="accordion-toggle nav-header line" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" id="categories">Categories  <span class="pull-right toggle_icon"></span>  </a> 
+                <ul class="nav nav-list accordion-body collapse in" id="collapseOne">
+								{{#each aoc-categories}}
+                  <li> <a href="/addons/category/{{this.id}}/{{this.cslug}}/">{{this.name}}</a>  </li>
+								{{/each}}
+                </ul>
+                <a class="accordion-toggle nav-header line" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">Industry  <span class="pull-right toggle_icon"></span>  </a> 
+                <ul class="nav nav-list accordion-body collapse in" id="collapseTwo">
+								{{#each aoc-industries}}
+                  <li> <a href="/addons/category/{{this.id}}/{{this.cslug}}/">{{this.name}}</a>  </li>
+								{{/each}}
+                </ul>
+                <a class="accordion-toggle nav-header line" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">Legend</a> 
+                <ul class="nav nav-list legend accordion-body collapse in" id="collapseThree">
+                  <a href="/addons/workswith/myob-accountright-classic/">
+                    <li>
+                      <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" title="AccountRight Classic" class="workswith_legend">AccountRight Classic</li>
+                  </a> 
+                  <a href="/addons/workswith/accountright-live/">
+                    <li>
+                      <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" title="AccountRight Live" class="workswith_legend">AccountRight Live</li>
+                  </a> 
+                  <a href="/addons/workswith/myob-retail-manager/">
+                    <li>
+                      <img src="/addons/media/workswith_icons/rm_2.png" alt="Retail Manager" title="Retail Manager" class="workswith_legend">Retail Manager</li>
+                  </a> 
+                </ul>
+                <a class="accordion-toggle nav-header line" href="http://myob.com.au/program/add-on-listing-on-myob-com/">How to get listed?</a> 
+              </div>
+            </div>

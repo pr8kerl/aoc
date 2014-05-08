@@ -1,0 +1,40 @@
+# =============================================
+# BUILD CONFIG
+# =============================================
+
+
+# Dest config
+src:							src
+dest:             _site
+
+# public assets
+assets:           <%= site.dest %>/addons/static
+
+# Data
+data:             <%= site.src %>/data
+
+# today
+date:             <%= new Date() %>
+
+# Styles
+styles:           <%= site.src %>/styles
+
+# Content
+content:          <%= site.src %>/content
+
+# Extensions
+plugins:
+  - assemble-contrib-permalinks
+  - assemble-contrib-anchors
+  - assemble-contrib-toc
+
+# Templates
+templates:        <%= site.src %>/templates
+pages:            <%= site.templates %>/pages
+partials:         <%= site.templates %>/partials
+layouts:          <%= site.templates %>/layouts
+markedtemplates:  <%= site.templates %>/marked
+
+# site metadata
+title:						MYOB Add-On Centre
+description:			Great 3rd party add-on tools to augment MYOB Business Management Software.
