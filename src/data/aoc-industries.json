@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Automotive",
+    "id": 10,
+    "cslug": "automotive"
+  },
+  {
+    "name": "Building and Construction",
+    "id": 9,
+    "cslug": "building-construction"
+  },
+  {
+    "name": "Childcare",
+    "id": 20,
+    "cslug": "childcare"
+  },
+  {
+    "name": "Healthcare",
+    "id": 11,
+    "cslug": "healthcare"
+  },
+  {
+    "name": "Hospitality",
+    "id": 7,
+    "cslug": "hospitality"
+  },
+  {
+    "name": "Human Resources",
+    "id": 6,
+    "cslug": "human-resources"
+  },
+  {
+    "name": "Legal",
+    "id": 12,
+    "cslug": "legal"
+  },
+  {
+    "name": "Not For Profit",
+    "id": 33,
+    "cslug": "not-for-profit"
+  },
+  {
+    "name": "Tourism",
+    "id": 31,
+    "cslug": "tourism"
+  }
+]

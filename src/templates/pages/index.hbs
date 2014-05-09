@@ -53,89 +53,47 @@ $(document).ready(function(){
 
           
               <div class="featured_group">
+
+              {{#each aoc-listings}}
+								{{#if this.featured}}
                 
-                  <a href="/addons/listing/112/invitbox/">
-                      </a><div class="featured_tile"><a href="/addons/listing/112/invitbox/">
-                        <div class="featured_logo pull-left">
-                          <img class="tile-image big-illustration" alt="" width="110" height="110" src="/addons/media/logo_override/inviitbox150x150.png">
-                        </div>
-                        </a><div class="featured_content pull-left"><a href="/addons/listing/112/invitbox/">
-                          <h3 class="tile-title">Invitbox</h3>
-                          <p>Invitbox eliminates data-entry and paper from your Accounts Payable process.</p>
-                          </a><div class="worksWith featured_worksWith"><a href="/addons/listing/112/invitbox/">
-                            
-                              
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
+                  <div class="featured_tile">
+										<a href="/addons/listing/{{ this.id }}/{{ this.slug }}/">
+                    <div class="featured_logo pull-left">
+                      <img class="tile-image big-illustration" alt="" width="110" height="110" src="{{ this.tileImage }}">
+                    </div>
+                    </a>
+										<div class="featured_content pull-left">
+											<a href="/addons/listing/{{ this.id }}/{{ this.slug }}/">
+                      <h3 class="tile-title">{{ this.name }}</h3>
+                          <p>{{ this.lead }}</p>
+                      </a>
+											<div class="worksWith featured_worksWith"><a href="/addons/listing/{{ this.id }}/{{ this.slug }}/"></a>
+                                {{#with worksWithARC}}
+                                <a href="/addons/workswith/myob-accountright-classic/">
                                     <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
                                 </a>
-                              
-                            
-                              
+																{{/with}}
+                                {{#with worksWithRM}}
+                                <a href="/addons/workswith/myob-retail-manager/">
+                                    <img src="/addons/media/workswith_icons/rm_2.png" alt="Retail Manager" data-toggle="tooltip" title="Retail Manager">
+                                </a>
+																{{/with}}
+
+                                {{#with worksWithARL}}
                                 <a href="/addons/workswith/accountright-live/">
                                     <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
                                 </a>
-                              
+																{{/with}}
                             
                           </div>
                         </div>
                     </div>
+										{{/if}}
+                  {{/each}}
                   
                 
-                  <a href="/addons/listing/37/cooking-books/">
-                      </a><div class="featured_tile"><a href="/addons/listing/37/cooking-books/">
-                        <div class="featured_logo pull-left">
-                          <img class="tile-image big-illustration" alt="" width="110" height="110" src="/addons/media/logo_override/150x150_logo.jpg">
-                        </div>
-                        </a><div class="featured_content pull-left"><a href="/addons/listing/37/cooking-books/">
-                          <h3 class="tile-title">Cooking the Books</h3>
-                          <p>Cooking the books is the perfect kitchen manager</p>
-                          </a><div class="worksWith featured_worksWith"><a href="/addons/listing/37/cooking-books/">
-                            
-                              
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                              
-                            
-                              
-                                <a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
-                                </a>
-                              
-                            
-                          </div>
-                        </div>
-                    </div>
-                  
-                
-                  <a href="/addons/listing/91/ezycollect/">
-                      </a><div class="featured_tile"><a href="/addons/listing/91/ezycollect/">
-                        <div class="featured_logo pull-left">
-                          <img class="tile-image big-illustration" alt="" width="110" height="110" src="/addons/media/logo_override/ezycollect.jpg">
-                        </div>
-                        </a><div class="featured_content pull-left"><a href="/addons/listing/91/ezycollect/">
-                          <h3 class="tile-title">ezyCollect</h3>
-                          <p>Your set and forget solution to debtor management.</p>
-                          </a><div class="worksWith featured_worksWith"><a href="/addons/listing/91/ezycollect/">
-                            
-                              
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                              
-                            
-                              
-                                <a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
-                                </a>
-                              
-                            
-                          </div>
-                        </div>
-                    </div>
-                  
-                
-              </div>
+            </div>
           
 
           

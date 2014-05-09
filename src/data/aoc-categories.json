@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Advanced Reporting",
+    "id": 3,
+    "cslug": "advanced-reporting"
+  },
+  {
+    "name": "Asset Management",
+    "id": 4,
+    "cslug": "asset-management"
+  },
+  {
+    "name": "Banking",
+    "id": 32,
+    "cslug": "banking"
+  },
+  {
+    "name": "Billing and Invoices",
+    "id": 1,
+    "cslug": "billing-invoices"
+  },
+  {
+    "name": "Budgeting and Forecasting",
+    "id": 5,
+    "cslug": "business-financial-planning-and-forecasting"
+  },
+  {
+    "name": "Business Intelligence",
+    "id": 15,
+    "cslug": "business-intelligence"
+  },
+  {
+    "name": "Credit Management",
+    "id": 29,
+    "cslug": "credit-management"
+  },
+  {
+    "name": "CRM",
+    "id": 2,
+    "cslug": "customer-relationship-management"
+  },
+  {
+    "name": "Data Synchronisation",
+    "id": 22,
+    "cslug": "data-synchronisation"
+  },
+  {
+    "name": "E-Commerce",
+    "id": 17,
+    "cslug": "e-commerce"
+  },
+  {
+    "name": "Email Marketing",
+    "id": 28,
+    "cslug": "email-marketing"
+  },
+  {
+    "name": "Inventory Management",
+    "id": 16,
+    "cslug": "inventory-management"
+  },
+  {
+    "name": "Job Management",
+    "id": 14,
+    "cslug": "job-management"
+  },
+  {
+    "name": "Loyalty Rewards",
+    "id": 24,
+    "cslug": "loyalty-rewards"
+  },
+  {
+    "name": "Membership Managment",
+    "id": 23,
+    "cslug": "membership-manager"
+  },
+  {
+    "name": "Mobile",
+    "id": 27,
+    "cslug": "mobile"
+  },
+  {
+    "name": "Network Security",
+    "id": 26,
+    "cslug": "network-security"
+  },
+  {
+    "name": "Point of Sale",
+    "id": 30,
+    "cslug": "point-of-sale"
+  },
+  {
+    "name": "Standard Business Reporting",
+    "id": 25,
+    "cslug": "standard-business-reporting"
+  },
+  {
+    "name": "Time Tracking and Rostering",
+    "id": 19,
+    "cslug": "time-tracking-and-rostering"
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "name": "BuildLogic",
+    "lead": "Buildlogic will help construction companies manage their business from quote to invoice",
+    "featured": true,
+    "worksWith": [
+      "ARC"
+    ],
+    "description": "src/content/listings/buildlogic.md",
+    "website": "http://www.buildlogic.com.au",
+    "socialBadges": {
+      "blog": false,
+      "facebook": false,
+      "twitter": false
+    },
+    "added": "May 28, 2013",
+    "developerName": "Business Driven",
+    "developerId": 24,
+    "developerSlug": "business-driven-systems-pl"
+  },
+  {
+    "name": "Web Ninja Ecommerce for MYOB",
+    "lead": "Integrated Ecommerce Solutions to Manage your Site, Processes & People",
+    "featured": false,
+    "worksWith": [
+      "ARC",
+      "RM",
+      "ARL"
+    ],
+    "description": "src/content/listings/web-ninja-ecommerce-myob.md",
+    "website": "http://www.webninja.com.au",
+    "support": "http://support.webninja.com.au",
+    "socialBadges": {
+      "blog": true,
+      "facebook": true,
+      "twitter": true
+    },
+    "added": "Nov. 13, 2013",
+    "developerName": "Web Ninja Pty Ltd",
+    "developerId": 74,
+    "developerSlug": "web-ninja-pty-ltd"
+  }
+]

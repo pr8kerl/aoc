@@ -1,0 +1,41 @@
+
+- name: BuildLogic
+  id: 28
+  slug: buildlogic
+  tileImage: /addons/media/logos/bds.png
+  lead: Buildlogic will help construction companies manage their business from quote to invoice
+  featured: true
+  worksWithARC: true
+  worksWithRM: false
+  worksWithARL: false
+  description: src/content/listings/buildlogic.md
+  website: http://www.buildlogic.com.au
+  socialBadges:
+    blog: false
+    facebook: false
+    twitter: false
+  added: May 28, 2013
+  developerName: Business Driven
+  developerId: 24
+  developerSlug: business-driven-systems-pl
+
+- name: Web Ninja Ecommerce for MYOB
+  id: 108
+  slug: web-ninja-ecommerce-myob
+  tileImage: /addons/media/logo_override/WN_Logo150x150.jpg
+  lead: Integrated Ecommerce Solutions to Manage your Site, Processes & People
+  featured: true
+  worksWithARC: true
+  worksWithRM: true
+  worksWithARL: true
+  description: src/content/listings/web-ninja-ecommerce-myob.md
+  website: http://www.webninja.com.au
+  support: http://support.webninja.com.au
+  socialBadges:
+    blog: true
+    facebook: true
+    twitter: true
+  added: Nov. 13, 2013
+  developerName: Web Ninja Pty Ltd
+  developerId: 74
+  developerSlug: web-ninja-pty-ltd
