@@ -5,30 +5,37 @@
 - name: Automotive
   id: 10
   cslug: automotive
+  lead: Add-on solutions for the Automotive industry with MYOB AccountRight
 
 - name: Building and Construction
   id: 9 
   cslug: building-construction
+  lead: Add-on solutions for the Building & Construction industry with MYOB AccountRight
 
 - name: Childcare
   id: 20
   cslug: childcare
+  lead: Add-on solutions for the Childcare industry with MYOB AccountRight
 
 - name: Healthcare
   id: 11
   cslug: healthcare
+  lead: Add-on solutions for the Healthcare industry with MYOB AccountRight
 
 - name: Hospitality
   id: 7
   cslug: hospitality
+  lead: Add-on solutions for the Hospitality industry with MYOB AccountRight
 
 - name: Human Resources
   id: 6
   cslug: human-resources
+  lead: Add-on solutions for the Human Resources industry with MYOB AccountRight
 
 - name: Legal
   id: 12
   cslug: legal
+  lead: Add-on solutions for the Legal industry with MYOB AccountRight
 
 - name: Not For Profit
   id: 33
@@ -37,3 +44,4 @@
 - name: Tourism
   id: 31
   cslug: tourism
+

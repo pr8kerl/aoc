@@ -36,5 +36,5 @@ layouts:          <%= site.templates %>/layouts
 markedtemplates:  <%= site.templates %>/marked
 
 # site metadata
-title:						MYOB Add-On Centre
+title:						MYOB Add-On Centre | find great 3rd party tools to augment MYOB Business Management Software
 description:			Great 3rd party add-on tools to augment MYOB Business Management Software.

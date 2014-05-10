@@ -5,10 +5,12 @@
 - name: Advanced Reporting
   id: 3
   cslug: advanced-reporting
+  lead: Taking reporting to that next level, Advanced Reports help you see inside the data
                  
 - name: Asset Management
   id: 4
   cslug: asset-management
+  lead: Better manage and understand the assets within your business with powerful add-ons
 
 - name: Banking
   id: 32
@@ -17,10 +19,12 @@
 - name: Billing and Invoices
   id: 1
   cslug: billing-invoices
+  lead: All you need to bill and pay expenses, along with sending and managing invoices
 
 - name: Budgeting and Forecasting
   id: 5
   cslug: business-financial-planning-and-forecasting
+  lead: Business financial, planning and forecasting
 
 - name: Business Intelligence
   id: 15
@@ -29,26 +33,32 @@
 - name: Credit Management
   id: 29
   cslug: credit-management
+  lead: Solutions that help debt collection from customers.
 
 - name: CRM
   id: 2
   cslug: customer-relationship-management
+  lead: Get to know your customers better with strong CRM integrations and Add-Ons for MYOB business tools
 
 - name: Data Synchronisation
   id: 22
   cslug: data-synchronisation
+  lead: Let your MYOB Software talk to other applications
 
 - name: E-Commerce
   id: 17
   cslug: e-commerce
+  lead: Connect MYOB AccountRight to your online store
 
 - name: Email Marketing
   id: 28
   cslug: email-marketing
+  lead: Add-on solutions for Email Marketting with MYOB AccountRight Live
 
 - name: Inventory Management
   id: 16
   cslug: inventory-management
+  lead: Add-on solutions for Inventory with MYOB AccountRight
 
 - name: Job Management
   id: 14
@@ -57,6 +67,7 @@
 - name: Loyalty Rewards
   id: 24
   cslug: loyalty-rewards
+  lead: Rewarding loyal customers and clients
 
 - name: Membership Managment
   id: 23
@@ -65,14 +76,17 @@
 - name: Mobile
   id: 27
   cslug: mobile
+  lead: Take your software out on the road
 
 - name: Network Security
   id: 26
   cslug: network-security
+  lead: Firewall, spam, hosting, monitoring, network, gateway, virus scanning.
 
 - name: Point of Sale
   id: 30
   cslug: point-of-sale
+  lead: Integration of Point of Sale solutions and tools with MYOB software.
 
 - name: Standard Business Reporting
   id: 25

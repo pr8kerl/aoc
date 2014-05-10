@@ -9,12 +9,6 @@
 
 'use strict';
 
-// # Globbing
-// for performance reasons we're only matching one level down:
-// '<%= config.src %>/templates/pages/{,*/}*.hbs'
-// use this if you want to match all subfolders:
-// '<%= config.src %>/templates/pages/**/*.hbs'
-
 module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
@@ -26,6 +20,13 @@ module.exports = function(grunt) {
     // Project metadata
     pkg: grunt.file.readJSON('package.json'),
     site: grunt.file.readYAML('site.yml'),
+    mycategories: grunt.file.readYAML('src/data/aoc-categories.yml'),
+
+    mkcategories: {
+      site: '<%= site %>',
+      categories: grunt.file.readYAML('src/data/aoc-categories.yml')
+    },
+   
 
     jshint: {
       options: {jshintrc: '.jshintrc'},
@@ -109,7 +110,18 @@ module.exports = function(grunt) {
         files: {
           '<%= site.dest %>/addons/': ['<%= site.pages %>/*.hbs']
         }
-      }
+      },
+      listings: {
+        options: {
+          layout: 'default.hbs',
+          permalinks: {
+            structure: ':id/:slug/index:ext'
+          }   
+        },  
+        files: {
+          '<%= site.dest %>/addons/listing/': ['<%= site.pages %>/listing/*.hbs']
+        }   
+      },  
     },
 
     prettify: {
@@ -135,10 +147,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-prettify');
 
+  grunt.registerTask('mkcategories', 'Create the category directories and pages', function() {
+    //var categories = grunt.file.readYAML('src/data/aoc-categories.yml');
+    var categories = grunt.config.get('mycategories');
+    var site = grunt.config.get('site');
+    var len = categories.length;
+    for (var i = 0; i < len; i++) {
+      var category = categories[i];
+      grunt.log.writeln(i + ": " + category.name);
+    }
+  });
+
   grunt.registerTask('server', [
     'jshint',
     'clean',
-    'less',
     'assemble',
     'prettify',
     'connect:livereload',
@@ -148,7 +170,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'jshint',
     'clean',
-    'less',
+    'mkcategories',
     'assemble',
     'prettify'
   ]);
