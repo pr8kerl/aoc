@@ -1,7 +1,6 @@
 {
   "name": "myob-add-on-centre",
   "description": "Find great 3rd party tools to augment MYOB Business Management Software.",
-
   "version": "0.1.0",
   "homepage": "https://github.com/pr8kerl/assemble-template",
   "author": {
@@ -23,20 +22,21 @@
   },
   "devDependencies": {
     "assemble": "~0.4.37",
+    "assemble-contrib-anchors": "~0.1.2",
+    "assemble-contrib-permalinks": "~0.3.6",
+    "assemble-contrib-sitemap": "*",
+    "assemble-contrib-toc": "~0.1.2",
     "assemble-less": "~0.7.0",
     "grunt": "~0.4.4",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-connect": "~0.7.1",
-    "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-jshint": "~0.8.0",
-    "load-grunt-tasks": "~0.4.0",
-    "time-grunt": "~0.3.1",
-    "pretty": "~0.1.2",
+    "grunt-contrib-watch": "~0.6.1",
     "grunt-prettify": "~0.3.4",
-    "assemble-contrib-permalinks": "~0.3.6",
-    "assemble-contrib-sitemap": "*",
-    "assemble-contrib-anchors": "~0.1.2",
-    "assemble-contrib-toc": "~0.1.2"
+    "load-grunt-tasks": "~0.4.0",
+    "pretty": "~0.1.2",
+    "time-grunt": "~0.3.1",
+    "yfm": "^0.2.0"
   },
   "licenses": [
     {

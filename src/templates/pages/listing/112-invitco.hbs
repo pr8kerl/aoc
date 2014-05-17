@@ -1,7 +1,7 @@
 ---
   name: Invitbox
   id: 112 
-  slug: cooking-books
+  slug: invitbox
   tileImage: /addons/media/logo_override/inviitbox150x150.png
   lead: Invitbox eliminates data-entry and paper from your Accounts Payable process.
   featured: true
@@ -19,6 +19,14 @@
   developerName: invitco
   developerId: 78
   developerSlug: invitco
+  developerGoogleTracking: UA-28696001-1
+
+  addon-listings:
+    id: 112
+    slug: cooking-books
+    tileImage: /addons/media/logo_override/inviitbox150x150.png
+    lead: Invitbox eliminates data-entry and paper from your Accounts Payable process.
+    featured: true
 ---
 
 
@@ -59,7 +67,7 @@ $(document).ready(function(){
     <div class="span4 devDetails">
         <p class="devName">From: <a href="/addons/developer/{{ id }}/{{ slug }}/"><strong>{{ developerName }}</strong></a></p>
               <p><a href="{{ website }}">» Website</a></p>
-        {{#with socailBadges }}
+        {{#with socialBadges }}
         <div class="socialBadges">
           {{#with socialBadges.facebook }}
             <a href="{{ socialBadges.facebook }}"><img src="/addons/static/img/facebook.png" data-toggle="tooltip" alt="{{ name }} on Facebook" title="{{ name }} on Facebook"></a>&nbsp;
@@ -189,9 +197,9 @@ $(document).ready(function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','developer_ga');
-  developer_ga('create', 'UA-47858945-2', 'myob.com.au');
+  developer_ga('create', '{{ developerGoogleTracking }}', '{{ hostname }}');
   developer_ga('send', 'pageview', {
-  'title': 'MOYB Add-On Centre |  developer page view'
+  'title': 'MYOB Add-On Centre |  developer page view'
   });
 </script>
 <!-- #END ADDON CENTRE GA TRACKING -->

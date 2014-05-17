@@ -13,6 +13,8 @@ module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
   var pretty = require('pretty');
+  var yfm = require('yfm');
+  var _ = require('lodash');
 
   // Project configuration.
   grunt.initConfig({
@@ -20,13 +22,13 @@ module.exports = function(grunt) {
     // Project metadata
     pkg: grunt.file.readJSON('package.json'),
     site: grunt.file.readYAML('site.yml'),
-    mycategories: grunt.file.readYAML('src/data/aoc-categories.yml'),
 
-    mkcategories: {
-      site: '<%= site %>',
-      categories: grunt.file.readYAML('src/data/aoc-categories.yml')
-    },
-   
+    mkdata: {
+      listings: { 
+        srcdir: '<%= site.pages %>/listing/*.hbs',
+        dest: '<%= site.data %>/listings.json'
+      }
+    },  
 
     jshint: {
       options: {jshintrc: '.jshintrc'},
@@ -38,8 +40,8 @@ module.exports = function(grunt) {
 
     watch: {
       assemble: {
-        files: ['src/{content,data,templates,styles}/{,*/,**/}*.{md,hbs,yml,less}'],
-        tasks: ['less','assemble']
+        files: ['src/{content,data,templates,styles}/{,*/,**/}*.{md,hbs,yml}'],
+        tasks: ['assemble']
       },  
       livereload: {
         options: {
@@ -70,17 +72,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // Compile Less to CSS
-    less: {
-      options: {
-        paths: ['<%= site.styles %>', '<%= site.styles %>/bootstrap' ]
-      },
-      pages: {
-        src: ['<%= site.styles %>/style.less'],
-        dest: '<%= site.assets %>/css/style.css'
-      }
-    },
-
     assemble: {
       options: {
         // Metadata
@@ -100,16 +91,7 @@ module.exports = function(grunt) {
           process: true,
           heading: '<%= site.markedtemplates %>/heading.tmpl',
         },
-        toc: {
-          modifier: 'nav sidenav',
-          li: 'nav',
-        },
         postprocess: pretty
-      },
-      addons: {
-        files: {
-          '<%= site.dest %>/addons/': ['<%= site.pages %>/*.hbs']
-        }
       },
       listings: {
         options: {
@@ -122,6 +104,11 @@ module.exports = function(grunt) {
           '<%= site.dest %>/addons/listing/': ['<%= site.pages %>/listing/*.hbs']
         }   
       },  
+      addons: {
+        files: {
+          '<%= site.dest %>/addons/': ['<%= site.pages %>/*.hbs']
+        }
+      },
     },
 
     prettify: {
@@ -140,27 +127,35 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('assemble');
-  grunt.loadNpmTasks('assemble-less');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-prettify');
 
-  grunt.registerTask('mkcategories', 'Create the category directories and pages', function() {
-    //var categories = grunt.file.readYAML('src/data/aoc-categories.yml');
-    var categories = grunt.config.get('mycategories');
-    var site = grunt.config.get('site');
-    var len = categories.length;
+  grunt.registerMultiTask('mkdata', 'read listing yfm data', function() {
+      grunt.log.writeln("utility task mkdata loads assemble data " + this.target + "[] from yfm content to allow definition of data once only within content");
+//    grunt.log.writeln(this.target + ': ' + this.data);
+//    grunt.log.writeln(this.name + ": " + this.data.srcdir);
+    var addonlistings = [];
+
+    var files = grunt.file.expand(this.data.srcdir);
+    var len = files.length;
     for (var i = 0; i < len; i++) {
-      var category = categories[i];
-      grunt.log.writeln(i + ": " + category.name);
+      var fmatter = yfm.read(files[i]).context;
+      grunt.log.writeln("loading yfm from file: " + files[i]);
+      addonlistings.push(fmatter);
     }
+    // shuffle the array to randomise the order of listing on the front page
+    var shuffled = _.shuffle(addonlistings);
+    grunt.file.write(this.data.dest, JSON.stringify(shuffled) );
+
   });
 
   grunt.registerTask('server', [
     'jshint',
     'clean',
+    'mkdata',
     'assemble',
     'prettify',
     'connect:livereload',
@@ -170,7 +165,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'jshint',
     'clean',
-    'mkcategories',
+    'mkdata',
     'assemble',
     'prettify'
   ]);

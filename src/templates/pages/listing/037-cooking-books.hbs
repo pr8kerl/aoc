@@ -19,8 +19,9 @@
   developerName: Cooking the Books
   developerId: 31
   developerSlug: cooking-books
+  developerGoogleTracking: UA-47858945-2
   carousel:
-    item: <img src="/addons/media/hero/CTBenterprises_logo_blackCMYK.jpg">
+    - <img src="/addons/media/hero/CTBenterprises_logo_blackCMYK.jpg">
 ---
 
 
@@ -61,7 +62,7 @@ $(document).ready(function(){
     <div class="span4 devDetails">
         <p class="devName">From: <a href="/addons/developer/{{ id }}/{{ slug }}/"><strong>{{ developerName }}</strong></a></p>
               <p><a href="{{ website }}">» Website</a></p>
-        {{#with socailBadges }}
+        {{#with socialBadges }}
         <div class="socialBadges">
           {{#with socialBadges.facebook }}
             <a href="{{ socialBadges.facebook }}"><img src="/addons/static/img/facebook.png" data-toggle="tooltip" alt="{{ name }} on Facebook" title="{{ name }} on Facebook"></a>&nbsp;
@@ -130,7 +131,7 @@ $(document).ready(function(){
   <hr>
   <div class="carousel-inner">
       {{#each carousel}}
-      <div class="active item">{{ this.item }}</div>
+      <div class="active item">{{ . }}</div>
       {{/each}}
   </div>
   <!-- Carousel nav -->
@@ -191,9 +192,9 @@ $(document).ready(function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','developer_ga');
-  developer_ga('create', 'UA-47858945-2', 'myob.com.au');
+  developer_ga('create', '{{ developerGoogleTracking }}', '{{ hostname }}');
   developer_ga('send', 'pageview', {
-  'title': 'MOYB Add-On Centre |  developer page view'
+  'title': 'MYOB Add-On Centre |  developer page view'
   });
 </script>
 <!-- #END ADDON CENTRE GA TRACKING -->
