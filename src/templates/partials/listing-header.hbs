@@ -1,30 +1,3 @@
----
-  name: Cooking the Books
-  id: 37
-  slug: cooking-books
-  tileImage: /addons/media/logo_override/150x150_logo.jpg
-  lead: The Complete Kitchen Manager
-  featured: true
-  worksWithARC: true
-  worksWithRM: false
-  worksWithARL: true
-  description: src/content/listings/cooking-books.md
-  website: http://www.cookingthebooks.com.au
-  support: http://www.cookingthebooks.com.au/Home/Contact
-  socialBadges:
-    blog: false
-    facebook: https://www.facebook.com/cookingthebooksenterprises
-    twitter: false
-  added: May 28, 2013
-  developerName: Cooking the Books
-  developerId: 31
-  developerSlug: cooking-books
-  developerGoogleTracking: UA-47858945-2
-  carousel:
-    - <img src="/addons/media/hero/CTBenterprises_logo_blackCMYK.jpg">
----
-
-
 <div class="box padded">
 <div class="wrapper">
 <!-- MAIN BODY HERE -->
@@ -64,11 +37,18 @@ $(document).ready(function(){
               <p><a href="{{ website }}">» Website</a></p>
         {{#with socialBadges }}
         <div class="socialBadges">
-          {{#with socialBadges.facebook }}
-            <a href="{{ socialBadges.facebook }}"><img src="/addons/static/img/facebook.png" data-toggle="tooltip" alt="{{ name }} on Facebook" title="{{ name }} on Facebook"></a>&nbsp;
-          {{/with}}
+          {{#if this.blog }}
+            <a href="{{ this.blog }}"><img alt="Read {{ ../../name }}'s blog" data-toggle="tooltip" src="/addons/static/img/blog.png" title="" data-original-title="Read {{ ../../name }}'s blog"></a>&nbsp;
+          {{/if}}
+          {{#if this.facebook }}
+            <a href="{{ this.facebook }}"><img src="/addons/static/img/facebook.png" data-toggle="tooltip" alt="{{ ../../name }} on Facebook" title="{{ ../../name }} on Facebook"></a>&nbsp;
+          {{/if}}
+          {{#if this.twitter }}
+            <a href="{{ this.twitter }}"><img alt="{{ ../../name }} on Twitter" data-toggle="tooltip" src="/addons/static/img/twitter.png" title="" data-original-title="{{ ../../name }} on Twitter"></a>
+          {{/if}}
         </div>
         {{/with}}
+
     </div>
     <div class="span4 certDetails">
     </div>
@@ -130,8 +110,17 @@ $(document).ready(function(){
   </script>
   <hr>
   <div class="carousel-inner">
-      {{#each carousel}}
-      <div class="active item">{{ . }}</div>
+      {{#each ../carousel }}
+      <div class="{{#if this.active}}active{{/if}} item">
+        {{#if this.img}}
+          <img src="{{ this.img }}">
+        {{/if}}
+        {{#if this.iframe}}
+          <iframe allowfullscreen="" frameborder="0" height="290" src="{{ this.iframe }}" width="515"></iframe>
+        {{/if}}
+      </div>
+      {{else}}
+      <!-- there ain't no carousel items -->
       {{/each}}
   </div>
   <!-- Carousel nav -->
@@ -141,66 +130,5 @@ $(document).ready(function(){
   {{/with}}
   <hr>
   <div class="description">
-  {{md description }}
-  <hr>
-<div class="span12 detailRibbon">
-    <div class="span7">
-      <p class="muted"><strong>Summary details</strong></p>
-        <ul>
-          <li>MYOB Products supported:
-              <ul>
-                {{#with worksWithARC}}
-                        <a href="/addons/workswith/myob-accountright-classic/">
-                            <li>AccountRight Classic</li>
-                        </a>
-                {{/with}}
-                {{#with worksWithARL}}
-                        <a href="/addons/workswith/accountright-live/">
-                            <li>AccountRight Live</li>
-                        </a>
-                {{/with}}
-              </ul>
-          </li>
-          <li>Added on: <strong>{{ added }}</strong></li>
-        </ul>
-    </div>
-    <div class="span5" style="padding-top: 25px;">
-          <a class="btn btn-success listing_btn" href="{{ website }}">Learn more on our website</a>
-          {{#if support}}
-          <a class="btn btn-warning listing_btn" href="{{ support }}">Get product support</a>
-          {{/if}}
-    </div>
-</div>
-</div>
-<!-- #BEGIN ADDON CENTRE GA TRACKING -->
-<script type="text/javascript">
-  /*
-  Dev Centre Listing
-  */
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-2310317-44']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-  /*
-  DEVELOPER TRACKING
-  */
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','developer_ga');
-  developer_ga('create', '{{ developerGoogleTracking }}', '{{ hostname }}');
-  developer_ga('send', 'pageview', {
-  'title': 'MYOB Add-On Centre |  developer page view'
-  });
-</script>
-<!-- #END ADDON CENTRE GA TRACKING -->
-</div></div>
-<!-- #END Addon Page Body Content -->
-<!-- MAIN BODY HERE -->
-</div>
-</div>
-</div>
+  <!-- description markdown -->
+
