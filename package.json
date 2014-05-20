@@ -51,5 +51,8 @@
     "site generator",
     "site builder",
     "grunt"
-  ]
+  ],
+  "dependencies": {
+    "lodash": "~2.4.1"
+  }
 }
