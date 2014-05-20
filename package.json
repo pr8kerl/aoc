@@ -21,22 +21,22 @@
     "test": "grunt assemble"
   },
   "devDependencies": {
-    "assemble": "~0.4.37",
-    "assemble-contrib-anchors": "~0.1.2",
-    "assemble-contrib-permalinks": "~0.3.6",
+    "assemble": "~0.4",
+    "assemble-contrib-anchors": "~0.1",
+    "assemble-contrib-permalinks": "~0.3",
     "assemble-contrib-sitemap": "*",
-    "assemble-contrib-toc": "~0.1.2",
-    "assemble-less": "~0.7.0",
-    "grunt": "~0.4.4",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-connect": "~0.7.1",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-prettify": "~0.3.4",
-    "load-grunt-tasks": "~0.4.0",
-    "pretty": "~0.1.2",
-    "time-grunt": "~0.3.1",
-    "yfm": "^0.2.0"
+    "assemble-contrib-toc": "~0.1",
+    "assemble-less": "~0.7",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "~0.5",
+    "grunt-contrib-connect": "~0.7",
+    "grunt-contrib-jshint": "~0.8",
+    "grunt-contrib-watch": "~0.6",
+    "grunt-prettify": "~0.3",
+    "load-grunt-tasks": "~0.4",
+    "pretty": "~0.1",
+    "time-grunt": "~0.3",
+    "yfm": "~0.2"
   },
   "licenses": [
     {
@@ -53,6 +53,6 @@
     "grunt"
   ],
   "dependencies": {
-    "lodash": "~2.4.1"
+    "lodash": "~2.4"
   }
 }
