@@ -27,6 +27,10 @@ module.exports = function(grunt) {
       listings: { 
         srcdir: '<%= site.pages %>/listing/*.hbs',
         dest: '<%= site.data %>/listings.json'
+      },
+      landingpages: { 
+        srcdir: '<%= site.pages %>/landing/*.hbs',
+        dest: '<%= site.data %>/landingpages.json'
       }
     },  
 
@@ -107,6 +111,11 @@ module.exports = function(grunt) {
       addons: {
         files: {
           '<%= site.dest %>/addons/': ['<%= site.pages %>/*.hbs']
+        }
+      },
+      landingpages: {
+        files: {
+          '<%= site.dest %>/landing/': ['<%= site.pages %>/*.hbs']
         }
       },
     },
