@@ -33,6 +33,7 @@
     "grunt-contrib-jshint": "~0.8",
     "grunt-contrib-watch": "~0.6",
     "grunt-prettify": "~0.3",
+    "handlebars-helper-rel": "^0.2.0",
     "load-grunt-tasks": "~0.4",
     "pretty": "~0.1",
     "time-grunt": "~0.3",
@@ -48,6 +49,7 @@
     "assemble",
     "templates",
     "handlebars",
+    "handlebars-helper-rel",
     "site generator",
     "site builder",
     "grunt"

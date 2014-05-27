@@ -2,7 +2,6 @@
 # BUILD CONFIG
 # =============================================
 
-
 # Dest config
 src:							src
 dest:             _site
@@ -38,3 +37,8 @@ markedtemplates:  <%= site.templates %>/marked
 # site metadata
 title:						MYOB Add-On Centre | find great 3rd party tools to augment MYOB Business Management Software
 description:			Great 3rd party add-on tools to augment MYOB Business Management Software.
+
+# urls
+slug: 						/addons
+showcase: 				<%= site.slug %>/showcase
+

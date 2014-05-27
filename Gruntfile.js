@@ -27,10 +27,6 @@ module.exports = function(grunt) {
       listings: { 
         srcdir: '<%= site.pages %>/listing/*.hbs',
         dest: '<%= site.data %>/listings.json'
-      },
-      landingpages: { 
-        srcdir: '<%= site.pages %>/landing/*.hbs',
-        dest: '<%= site.data %>/landingpages.json'
       }
     },  
 
@@ -90,6 +86,7 @@ module.exports = function(grunt) {
         layoutdir: '<%= site.layouts %>',
         layout: 'default.hbs',
         partials: '<%= site.partials %>/*.hbs',
+        helpers: 'handlebars-helper-rel',
         compose: {cwd: '<%= site.content %>'},
         marked: {
           process: true,
@@ -113,11 +110,18 @@ module.exports = function(grunt) {
           '<%= site.dest %>/addons/': ['<%= site.pages %>/*.hbs']
         }
       },
-      landingpages: {
+      showcases: {
+        options: {
+          site: '<%= site %>',
+          layout: 'showcase.hbs',
+          permalinks: {
+            structure: ':session/:basename/index:ext'
+          }   
+        },  
         files: {
-          '<%= site.dest %>/landing/': ['<%= site.pages %>/*.hbs']
-        }
-      },
+          '<%= site.dest %>/addons/showcase/': ['<%= site.pages %>/showcase/*.hbs']
+        }   
+      },  
     },
 
     prettify: {
