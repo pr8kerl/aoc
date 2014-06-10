@@ -1,0 +1,27 @@
+---
+title: Add-On Showcases
+lead: Showcasing MYOB add-ons.
+---
+
+
+
+	<div class="container">
+		<h2>Showcasing our add-ons</h2>
+		<p class="top">Each month we sit down with 2 or 3 of our add-on developers and we talk through with them the key business pain points that their solution helps solve. We talk about how it integrates with MYOB and we unpack what's in it for our MYOB partners.</p>
+		<p class="top">Below you'll find an archive of the show case videos we've compiled so far.</p>
+	</div>
+
+	<div class="container">
+		{{#each showcase}}
+		<div class="showcase-item">
+			<div class="video-thumbnail">
+				<a href="https://store.myob.com.au/pages/cart.aspx?action=Purchase&amp;ProductId=1-2XIW7RF&amp;ClassId=1-2XJWTOZ&amp;source=http://myob.com.au "><img src="/media/cms_page_media/917/soon.jpg" /></a>
+			</div>
+			<h4>{{ name }}</h4>
+			<p class="snippet">{{ lead }}</p>
+			<div class="button">
+				<a class="btn btn-default" href="https://store.myob.com.au/pages/cart.aspx?action=Purchase&amp;ProductId=1-2XIW7RF&amp;ClassId=1-2XJWTOZ&amp;source=http://myob.com.au ">Register now</a>
+			</div>
+		</div>
+		{{/each}}
+	</div>

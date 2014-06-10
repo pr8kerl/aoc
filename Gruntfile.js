@@ -24,14 +24,14 @@ module.exports = function(grunt) {
     site: grunt.file.readYAML('site.yml'),
 
     mkdata: {
-      listings: { 
-        srcdir: '<%= site.pages %>/listing/*.hbs',
-        dest: '<%= site.data %>/listings.json'
-      },
-      landingpages: { 
-        srcdir: '<%= site.pages %>/landing/*.hbs',
-        dest: '<%= site.data %>/landingpages.json'
-      }
+      // listings: { 
+      //   srcdir: '<%= site.pages %>/listing/*.hbs',
+      //   dest: '<%= site.data %>/listings.json'
+      // },
+      // showcase: { 
+      //   srcdir: '<%= site.pages %>/showcase/*.hbs',
+      //   dest: '<%= site.data %>/showcase.json'
+      // } // this was for making the data 
     },  
 
     jshint: {
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
       all: [
         'Gruntfile.js',
         '<%= site.templates %>/helpers/*.js'
-      ]   
+      ] 
     },  
 
     watch: {
@@ -113,9 +113,15 @@ module.exports = function(grunt) {
           '<%= site.dest %>/addons/': ['<%= site.pages %>/*.hbs']
         }
       },
-      landingpages: {
+      showcase: {
+        options: {
+          layout: 'showcase.hbs',
+          permalinks: {
+            structure: '/:slug/index:ext'
+          }   
+        },
         files: {
-          '<%= site.dest %>/landing/': ['<%= site.pages %>/*.hbs']
+          '<%= site.dest %>/showcase/': ['<%= site.pages %>/showcase/*.hbs']
         }
       },
     },
@@ -141,6 +147,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-prettify');
+  grunt.loadNpmTasks('handlebars-helpers');
 
   grunt.registerMultiTask('mkdata', 'read listing yfm data', function() {
       grunt.log.writeln("utility task mkdata loads assemble data " + this.target + "[] from yfm content to allow definition of data once only within content");
@@ -164,7 +171,7 @@ module.exports = function(grunt) {
   grunt.registerTask('server', [
     'jshint',
     'clean',
-    'mkdata',
+    // 'mkdata',
     'assemble',
     'prettify',
     'connect:livereload',
@@ -174,7 +181,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'jshint',
     'clean',
-    'mkdata',
+    // 'mkdata',
     'assemble',
     'prettify'
   ]);

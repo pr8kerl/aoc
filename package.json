@@ -33,6 +33,7 @@
     "grunt-contrib-jshint": "~0.8",
     "grunt-contrib-watch": "~0.6",
     "grunt-prettify": "~0.3",
+    "handlebars-helpers": "^0.5.5",
     "load-grunt-tasks": "~0.4",
     "pretty": "~0.1",
     "time-grunt": "~0.3",

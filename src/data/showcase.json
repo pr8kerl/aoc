@@ -1,0 +1,28 @@
+[{
+	"name":"Coming Up",
+	"slug":"addon-showcase-coming-up-next",
+	"tileImage":"http://developer.myob.com/media/cms_page_media/917/soon.jpg",
+	"lead":"Our next showcase is just around the corner, click the link below to register and find out more",
+	"watchBtn":"https://store.myob.com.au/pages/cart.aspx?action=Purchase&ProductId=1-2XIW7RF&ClassId=1-2XJWTOZ&source=http://myob.com.au"
+},
+{
+	"name":"Budgets & Forecasting",
+	"slug":"budgeting-forecasting-addon-showcase-may2014",
+	"tileImage":"http://developer.myob.com/media/cms_page_media/917/may.jpg",
+	"lead":"Take a look with us into the add-ons that help you prepare for a new financial year with Budgeting & Forecasting",
+	"watchBtn":"http://developer.myob.com/addons/showcase/may-2014/budgets-forecasting/"
+},
+{
+	"name":"Working on the go",
+	"slug":"working-on-go-addon-showcase-apr2014",
+	"tileImage":"http://developer.myob.com/media/cms_page_media/917/may.jpg",
+	"lead":"We talk today with add-on solutions that help your business on the move with mobile solutions",
+	"watchBtn":"http://developer.myob.com/addons/showcase/apr-2014/work-on-the-go/"
+},
+{
+	"name":"First Showcase",
+	"slug":"frst-showcase-addon-showcase-feb2014",
+	"tileImage":"http://developer.myob.com/media/cms_page_media/917/feb.jpg",
+	"lead":"We get the ball rolling with 3 great add-ons that simplify data entry in your business",
+	"watchBtn":""
+}]
