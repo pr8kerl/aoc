@@ -23,10 +23,9 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     site: grunt.file.readYAML('site.yml'),
 
-    mkdata: {
-      listings: { 
-        srcdir: '<%= site.pages %>/listing/*.hbs',
-        dest: '<%= site.data %>/listings.json'
+    shuffle: {
+     listings: { 
+        dest: '<%= site.data %>/my-listings.json'
       }
     },  
 
@@ -34,7 +33,8 @@ module.exports = function(grunt) {
       options: {jshintrc: '.jshintrc'},
       all: [
         'Gruntfile.js',
-        '<%= site.templates %>/helpers/*.js'
+        '<%= site.templates %>/helpers/*.js',
+        'src/data/*.js'
       ]   
     },  
 
@@ -86,7 +86,7 @@ module.exports = function(grunt) {
         layoutdir: '<%= site.layouts %>',
         layout: 'default.hbs',
         partials: '<%= site.partials %>/*.hbs',
-        helpers: 'handlebars-helper-rel',
+        helpers: ['src/extensions/*.js', 'handlebars-helper-rel'],
         compose: {cwd: '<%= site.content %>'},
         marked: {
           process: true,
@@ -151,6 +151,8 @@ module.exports = function(grunt) {
 //    grunt.log.writeln(this.target + ': ' + this.data);
 //    grunt.log.writeln(this.name + ": " + this.data.srcdir);
     var addonlistings = [];
+    var aoc = grunt.file.readJSON('src/data/listings.json');
+    grunt.log.writeln("aoc length: " + aoc.listings[0].featured.length);
 
     var files = grunt.file.expand(this.data.srcdir);
     var len = files.length;
@@ -165,10 +167,23 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.registerMultiTask('shuffle', 'shuffle listing data', function() {
+
+      grunt.log.writeln("utility task shuffle loads assemble data " + this.target + "[]");
+//    grunt.log.writeln(this.target + ': ' + this.data);
+//    grunt.log.writeln(this.name + ": " + this.data.srcdir);
+    var aoc = grunt.file.readJSON('src/data/listings.json');
+
+    // shuffle the array to randomise the order of listing on the front page
+    var shuffled = _.shuffle(aoc);
+    grunt.file.write(this.data.dest, JSON.stringify(shuffled) );
+
+  });
+
   grunt.registerTask('server', [
     'jshint',
     'clean',
-    'mkdata',
+    'shuffle',
     'assemble',
     'prettify',
     'connect:livereload',
@@ -178,7 +193,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'jshint',
     'clean',
-    'mkdata',
+    'shuffle',
     'assemble',
     'prettify'
   ]);

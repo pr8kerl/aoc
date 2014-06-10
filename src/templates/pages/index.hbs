@@ -55,42 +55,31 @@ $(document).ready(function(){
           
               <div class="featured_group">
 
-              {{#each listings}}
-								{{#if this.featured}}
-                
+              {{#each my-listings}}
+                {{#if this.is_promoted}}
                   <div class="featured_tile">
-										<a href="/addons/listing/{{ this.id }}/{{ this.slug }}/">
+										<a href="{{ this.url }}/">
                     <div class="featured_logo pull-left">
-                      <img class="tile-image big-illustration" alt="" width="110" height="110" src="{{ this.tileImage }}">
+                      <img class="tile-image big-illustration" alt="" width="110" height="110" src="/addons{{ this.images.logo }}">
                     </div>
                     </a>
 										<div class="featured_content pull-left">
-											<a href="/addons/listing/{{ this.id }}/{{ this.slug }}/">
+											<a href="{{ this.url }}/">
                       <h3 class="tile-title">{{ this.name }}</h3>
-                          <p>{{ this.lead }}</p>
+                          <p>{{ this.seo.description }}</p>
                       </a>
-											<div class="worksWith featured_worksWith"><a href="/addons/listing/{{ this.id }}/{{ this.slug }}/"></a>
-                                {{#with worksWithARC}}
-                                <a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-																{{/with}}
-                                {{#with worksWithRM}}
-                                <a href="/addons/workswith/myob-retail-manager/">
-                                    <img src="/addons/media/workswith_icons/rm_2.png" alt="Retail Manager" data-toggle="tooltip" title="Retail Manager">
-                                </a>
-																{{/with}}
+											<div class="worksWith featured_worksWith"><a href="{{ this.url }}/"></a>
 
-                                {{#with worksWithARL}}
-                                <a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
+                                {{#each this.workswith}}
+                                <a href="/addons/workswith/fix-me/">
+                                    <img src="/addons{{ this.application.icon }}" alt="{{ this.application.name }}" data-toggle="tooltip" title="{{ this.application.name }}">
                                 </a>
-																{{/with}}
-                            
+																{{/each}}
+
                           </div>
                         </div>
                     </div>
-										{{/if}}
+                    {{/if}}
                   {{/each}}
                   
                 
@@ -103,534 +92,31 @@ $(document).ready(function(){
 
           
             <div class="ppartner_listings">
+
+              {{#each my-listings}}
+                {{#compare this.developer.level 'PP' }}
               
               <!-- paid -->
-                <a href="/addons/listing/9/ims/">
-                  </a><div><a href="/addons/listing/9/ims/">
-                    </a><div class="tile"><a href="/addons/listing/9/ims/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logos/ims.jpg">
-                      <h3 class="tile-title">IMS</h3>
-                      <p>IMS is a web based service solution designed for the service industry.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/9/ims/">
+                <a href="{{ this.url }}/">
+                  </a><div><a href="{{ this.url }}/">
+                    </a><div class="tile"><a href="{{ this.url }}/">
+                      <img class="tile-image big-illustration" alt="" src="/addons{{ this.images.logo }}">
+                      <h3 class="tile-title">{{ this.name }}</h3>
+                          <p>{{ this.seo.description }}</p>
+                        </a><div class="worksWith"><a href="{{ this.url }}/">
                          
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
+                                {{#each this.workswith}}
+                                <a href="/addons/workswith/fix-me/">
+                                    <img src="/addons{{ this.application.icon }}" alt="{{ this.application.name }}" data-toggle="tooltip" title="{{ this.application.name }}">
                                 </a>
+																{{/each}}
                             
-                          
                         </div>
                     </div>
                   </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/39/tall-emu-crm/">
-                  </a><div><a href="/addons/listing/39/tall-emu-crm/">
-                    </a><div class="tile"><a href="/addons/listing/39/tall-emu-crm/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logos/tallemu.png">
-                      <h3 class="tile-title">Tall Emu CRM</h3>
-                      <p>Automate your business “end to end” with this customisable CRM system.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/39/tall-emu-crm/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/117/directdebitslink-free-edition/">
-                  </a><div><a href="/addons/listing/117/directdebitslink-free-edition/">
-                    </a><div class="tile"><a href="/addons/listing/117/directdebitslink-free-edition/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/DDLink_1.JPG">
-                      <h3 class="tile-title">DirectDebitsLink Free Edition</h3>
-                      <p>Creates ABA files from MYOB Invoices and Deposits.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/117/directdebitslink-free-edition/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/60/govdirect/">
-                  </a><div><a href="/addons/listing/60/govdirect/">
-                    </a><div class="tile"><a href="/addons/listing/60/govdirect/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/2.jpg">
-                      <h3 class="tile-title">GovDirect</h3>
-                      <p>Quickly and easily manage, process and submit your Government obligations electronically.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/60/govdirect/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/53/legrand-crm/">
-                  </a><div><a href="/addons/listing/53/legrand-crm/">
-                    </a><div class="tile"><a href="/addons/listing/53/legrand-crm/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logos/legrandl.png">
-                      <h3 class="tile-title">Legrand CRM</h3>
-                      <p>Legrand CRM is a very practical CRM system integrating with MYOB, Outlook &amp; your website.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/53/legrand-crm/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/13/budgetlink/">
-                  </a><div><a href="/addons/listing/13/budgetlink/">
-                    </a><div class="tile"><a href="/addons/listing/13/budgetlink/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/BudgetLink_logo.png">
-                      <h3 class="tile-title">BudgetLink</h3>
-                      <p>A breakthrough reporting innovation which updates your complex finance reports in Excel</p>
-                        </a><div class="worksWith"><a href="/addons/listing/13/budgetlink/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                            
-                                <a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/49/mobpos/">
-                  </a><div><a href="/addons/listing/49/mobpos/">
-                    </a><div class="tile"><a href="/addons/listing/49/mobpos/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/pic2_1.jpg">
-                      <h3 class="tile-title">Enterprise Mobility</h3>
-                      <p>Enabling customers to mobilise</p>
-                        </a><div class="worksWith"><a href="/addons/listing/49/mobpos/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/22/rubihawk-myob/">
-                  </a><div><a href="/addons/listing/22/rubihawk-myob/">
-                    </a><div class="tile"><a href="/addons/listing/22/rubihawk-myob/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logos/188358_180037778707561_617106_n.jpg">
-                      <h3 class="tile-title">Rubihawk for MYOB</h3>
-                      <p>Business intelligence, consolidation &amp; insight via dashboards &amp; interactive reports.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/22/rubihawk-myob/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/18/straightsell/">
-                  </a><div><a href="/addons/listing/18/straightsell/">
-                    </a><div class="tile"><a href="/addons/listing/18/straightsell/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/Straightsell-Product-Logo-150x150.jpg">
-                      <h3 class="tile-title">Straightsell</h3>
-                      <p>Let MYOB be the driver of your eCommerce website, with comprehensive 7 point integration</p>
-                        </a><div class="worksWith"><a href="/addons/listing/18/straightsell/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                            
-                                <a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/110/tanda/">
-                  </a><div><a href="/addons/listing/110/tanda/">
-                    </a><div class="tile"><a href="/addons/listing/110/tanda/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logos/tanda_logo_1.png">
-                      <h3 class="tile-title">Tanda</h3>
-                      <p>Tanda eliminates paper timesheets. Automate and celebrate!</p>
-                        </a><div class="worksWith"><a href="/addons/listing/110/tanda/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                            
-                                <a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/1/calxa-express/">
-                  </a><div><a href="/addons/listing/1/calxa-express/">
-                    </a><div class="tile"><a href="/addons/listing/1/calxa-express/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/calxa_express.png">
-                      <h3 class="tile-title">Calxa Express</h3>
-                      <p>Small business cashflow forecasts</p>
-                        </a><div class="worksWith"><a href="/addons/listing/1/calxa-express/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                            
-                                <a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/10/isa-inventorymanager/">
-                  </a><div><a href="/addons/listing/10/isa-inventorymanager/">
-                    </a><div class="tile"><a href="/addons/listing/10/isa-inventorymanager/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logos/IM_box_150__42447.1320755993.360.244.png">
-                      <h3 class="tile-title">ISA InventoryManager</h3>
-                      <p>Designed for Manufacturers and Wholesalers who use MYOB.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/10/isa-inventorymanager/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/77/cellnet-logistics-integration-myob-onesaas/">
-                  </a><div><a href="/addons/listing/77/cellnet-logistics-integration-myob-onesaas/">
-                    </a><div class="tile"><a href="/addons/listing/77/cellnet-logistics-integration-myob-onesaas/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/Cellnet-Logistics-Integration-with-MYOB-by-OneSaas-150x150.png">
-                      <h3 class="tile-title">Cellnet Logistics Integration with MYOB by OneSaas</h3>
-                      <p>When an order is created in MYOB directly or via another connected shopping cart or CRM</p>
-                        </a><div class="worksWith"><a href="/addons/listing/77/cellnet-logistics-integration-myob-onesaas/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/71/zohocrm-integration-myob-onesaas/">
-                  </a><div><a href="/addons/listing/71/zohocrm-integration-myob-onesaas/">
-                    </a><div class="tile"><a href="/addons/listing/71/zohocrm-integration-myob-onesaas/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/ZohoCRM-Integration-with-MYOB-by-OneSaas-150x150.png">
-                      <h3 class="tile-title">ZohoCRM Integration with MYOB by OneSaas</h3>
-                      <p>When an opportunity in ZohoCRM is closed/won, OneSaas creates an invoice in MYOB</p>
-                        </a><div class="worksWith"><a href="/addons/listing/71/zohocrm-integration-myob-onesaas/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/24/leading-hand/">
-                  </a><div><a href="/addons/listing/24/leading-hand/">
-                    </a><div class="tile"><a href="/addons/listing/24/leading-hand/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/lh_oval_logo.gif">
-                      <h3 class="tile-title">The Leading Hand</h3>
-                      <p>Designed to manage vehicle and plant workshops.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/24/leading-hand/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/42/easyemployer/">
-                  </a><div><a href="/addons/listing/42/easyemployer/">
-                    </a><div class="tile"><a href="/addons/listing/42/easyemployer/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/easyemployer.png">
-                      <h3 class="tile-title">easyEMPLOYER</h3>
-                      <p>Easy to use, powerful, online solution to streamline everything from rostering to payroll!</p>
-                        </a><div class="worksWith"><a href="/addons/listing/42/easyemployer/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                            
-                                <a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/56/xsquizzit-live-ecommerce/">
-                  </a><div><a href="/addons/listing/56/xsquizzit-live-ecommerce/">
-                    </a><div class="tile"><a href="/addons/listing/56/xsquizzit-live-ecommerce/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logos/297957_235570673146929_1020823_a.jpg">
-                      <h3 class="tile-title">XSQUIZZIT: Live eCommerce</h3>
-                      <p>XSQUIZZIT provides premium online stores, wholesale and retail, that integrate LIVE.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/56/xsquizzit-live-ecommerce/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/114/international-payments-myob/">
-                  </a><div><a href="/addons/listing/114/international-payments-myob/">
-                    </a><div class="tile"><a href="/addons/listing/114/international-payments-myob/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logos/transfermate.JPG">
-                      <h3 class="tile-title">International Payments for MYOB</h3>
-                      <p>The perfect Add-On for any MYOB user paying multi currency payments to suppliers overseas.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/114/international-payments-myob/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/2/calxa-premier/">
-                  </a><div><a href="/addons/listing/2/calxa-premier/">
-                    </a><div class="tile"><a href="/addons/listing/2/calxa-premier/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/calxa_prem.png">
-                      <h3 class="tile-title">Calxa Premier</h3>
-                      <p>Ideal for those with complex reporting needs</p>
-                        </a><div class="worksWith"><a href="/addons/listing/2/calxa-premier/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                            
-                                <a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/79/national-products-fulfilment-integration-myob-onesaas/">
-                  </a><div><a href="/addons/listing/79/national-products-fulfilment-integration-myob-onesaas/">
-                    </a><div class="tile"><a href="/addons/listing/79/national-products-fulfilment-integration-myob-onesaas/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/NPF-Integration-with-MYOB-by-OneSaas-150x150.png">
-                      <h3 class="tile-title">National Products Fulfilment Integration with MYOB by OneSaas</h3>
-                      <p>When an order is created in MYOB directly or via another connected shopping cart or CRM</p>
-                        </a><div class="worksWith"><a href="/addons/listing/79/national-products-fulfilment-integration-myob-onesaas/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/73/mailchimp-integration-myob-onesaas/">
-                  </a><div><a href="/addons/listing/73/mailchimp-integration-myob-onesaas/">
-                    </a><div class="tile"><a href="/addons/listing/73/mailchimp-integration-myob-onesaas/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/MailChimp-Integration-with-MYOB-by-OneSaas-150x150.png">
-                      <h3 class="tile-title">MailChimp Integration with MYOB by OneSaas</h3>
-                      <p>When a contact is created in MYOB directly or via another connected shopping cart or CRM</p>
-                        </a><div class="worksWith"><a href="/addons/listing/73/mailchimp-integration-myob-onesaas/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/36/axis-edi-ecommerce-connector/">
-                  </a><div><a href="/addons/listing/36/axis-edi-ecommerce-connector/">
-                    </a><div class="tile"><a href="/addons/listing/36/axis-edi-ecommerce-connector/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/axisedi.png">
-                      <h3 class="tile-title">Axis EDI - eCommerce connector</h3>
-                      <p>Download online orders from eBay or web stores directly into AccountRight</p>
-                        </a><div class="worksWith"><a href="/addons/listing/36/axis-edi-ecommerce-connector/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/123/drone-keypad-software/">
-                  </a><div><a href="/addons/listing/123/drone-keypad-software/">
-                    </a><div class="tile"><a href="/addons/listing/123/drone-keypad-software/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/drone-150x150.jpg">
-                      <h3 class="tile-title">Drone - Keypad Software</h3>
-                      <p>Point of sale keypad software for franchisors and corporate retail chains.</p>
-                        </a><div class="worksWith"><a href="/addons/listing/123/drone-keypad-software/">
-                         
-                            
-                                </a><a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
-              
-              <!-- paid -->
-                <a href="/addons/listing/52/business-intelligence-for-myob/">
-                  </a><div><a href="/addons/listing/52/business-intelligence-for-myob/">
-                    </a><div class="tile"><a href="/addons/listing/52/business-intelligence-for-myob/">
-                      <img class="tile-image big-illustration" alt="" src="/addons/media/logo_override/bim_logo.png">
-                      <h3 class="tile-title">Business Intelligence for MYOB</h3>
-                      <p>Reports, Charts, Dashboards, Visualisations, Email Notifications &amp; Alerts</p>
-                        </a><div class="worksWith"><a href="/addons/listing/52/business-intelligence-for-myob/">
-                         
-                            
-                                </a><a href="/addons/workswith/myob-accountright-classic/">
-                                    <img src="/addons/media/workswith_icons/arc_2.png" alt="AccountRight Classic" data-toggle="tooltip" title="AccountRight Classic">
-                                </a>
-                            
-                          
-                            
-                                <a href="/addons/workswith/myob-retail-manager/">
-                                    <img src="/addons/media/workswith_icons/rm_2.png" alt="Retail Manager" data-toggle="tooltip" title="Retail Manager">
-                                </a>
-                            
-                          
-                            
-                                <a href="/addons/workswith/accountright-live/">
-                                    <img src="/addons/media/workswith_icons/arl_2.png" alt="AccountRight Live" data-toggle="tooltip" title="AccountRight Live">
-                                </a>
-                            
-                          
-                        </div>
-                    </div>
-                  </div>
-                
+
+                {{/compare}}
+              {{/each}}
               
             </div>
           
