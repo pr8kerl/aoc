@@ -1,0 +1,219 @@
+<style>
+/* this needs to be taken out to it's own CSS */
+body {
+	background-color: white !important;
+}
+
+.addon-top {
+	margin-bottom: 30px;
+}
+
+.addon-top h2 {
+	line-height: 128px;
+}
+
+.add-on-navbar .container-fluid {
+	margin-left: 0;
+	padding-left: 0;
+	width: 940px;
+}
+
+.add-on-navbar a {
+	font-size: 14px;
+	font-weight: lighter;
+}
+
+.add-on-navbar a.first {
+	padding-left: 0;
+}
+
+.add-on-segment-message {
+	min-height: 288px;
+	max-height: 288px;
+	margin-bottom: 12px;
+	overflow: hidden;
+}
+
+.add-on-frame {
+	padding: 10px;
+}
+
+.add-on-line-break {
+	margin: 20px 0 20px 0;
+	font-size: 1px;
+	line-height: 1px;
+	clear: both;
+	border-bottom: 1px solid rgb(239, 239, 239);
+}
+
+.add-on-display {
+	overflow: hidden;
+	height: 160px;
+	color: rgba(32, 32, 32, 0.30);
+	border: 1px solid rgba(33, 30, 30, 0.2);
+}
+
+.add-on-logo-name {
+	margin: 0;
+	padding: 0;
+	height: 95px;
+	border-bottom: 1px solid rgb(239, 239, 239);
+}
+
+.add-on-logo-name .add-on-logo-image {
+	padding-left: 0px;
+	text-align: left;
+}
+
+.add-on-logo-name .add-on-name h3 {
+	padding-top: 5px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	vertical-align: middle;
+	max-height: 90px;
+	overflow: hidden;
+}
+
+.add-on-logo-name .add-on-name p {
+	margin-top: 6px;
+	font-size: 12px;
+	line-height: 16px;
+	color: rgba(34, 34, 34, 0.5);
+}
+
+.add-on-logo-image img {
+	width: 75px;
+	height: 75px;
+	margin: 5px 0 0 5px;
+	padding: 0;
+}
+
+.add-on-type-price {
+	font-size: 12px;
+	line-height: 34px;
+	height: 34px;
+	padding-top: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: rgb(34, 34, 34);
+	overflow: hidden;
+}
+
+.add-on-type {
+	color: rgba(34, 34, 34, 0.5);
+}
+
+.add-on-applications-supported {
+	height: 34px;
+	line-height: 24px;
+	background-color: rgb(246, 246, 246);
+	border-top: 1px solid rgb(239, 239, 239);
+	padding: 0;
+	padding-left: 5px;
+}
+
+.add-on-applications-supported a img {
+	width: 24px;
+	padding: 5px 2px 2px 2px;
+	display: inline-block;
+}
+
+.add-on-summary {
+	padding: 10px 5px;
+	color: black;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+
+</style>
+<script>
+/* this also needs moved */
+$( document ).ready(function() {
+	console.log("ready");
+
+	$('.add-on-display').hover(function (e) {
+	  e.preventDefault()
+	  $(this).find('.add-on-logo-name').slideToggle(300, "swing");
+	});
+
+});
+
+
+
+</script>
+<div class="addon-top">
+	<h2><strong>Add-ons</strong>: solutions that make business life easier</h2>
+	<nav class="navbar navbar-default add-on-navbar" role="navigation">
+	  <div class="container-fluid">
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	      	<li class="dropdown">
+	          <a href="#" class="dropdown-toggle first" data-toggle="dropdown">Filter by <strong>industry</strong> <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Trades &amp; Construction</a></li>
+	            <li><a href="#">Hospitality</a></li>
+	            <li><a href="#">Farming</a></li>
+	          </ul>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter by <strong>category</strong> <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Point of Sale</a></li>
+	            <li><a href="#">Advanced Reporting</a></li>
+	            <li><a href="#">Invoices</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	      <form class="navbar-form navbar-right" role="search">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search add-ons">
+	        </div>
+	        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search</button>
+	      </form>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container -->
+	</nav>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+	  <div class="col-md-12">
+	  	<!-- in here go 4 add-ons -->
+	  	{{#each listings}}
+		  <div class="col-md-4 add-on-frame">
+		  	<div class="add-on-display" id="serviceM8">
+		  		<div class="add-on-logo-name">
+		  			<div class="col-md-3 add-on-logo-image">
+		  				<img src="http://myob.com.au/addons{{ this.images.logo }}" alt="{{ this.name }} logo" />
+		  			</div>
+		  			<div class="col-md-9 add-on-name">
+		  				<h3>{{ this.name }}</h3>
+		  			</div>
+		  		</div>
+		  		<div class="add-on-type-price">
+		  			<span class="add-on-type pull-right">Direct Integration <span class="glyphicon glyphicon-check"></span> </span>
+		  			<span class="add-on-price">{{ this.price.comments }}</span>
+		  		</div>
+		  		<div class="add-on-applications-supported">
+		  			{{#each workswith}}
+		  			<a href="">
+                    	<img alt="{{ this.name }}" data-toggle="tooltip" src="http://myob.com.au/addons{{ this.icon }}" title="" data-original-title="{{ this.name }}">
+                    </a>
+                    {{/each}}
+		  		</div>
+		  		<div class="add-on-summary">
+		  			<p>{{ this.description.summary }}</p>
+		  		</div>
+		  	</div>
+		  </div>
+		{{/each}} 
+		 
+	  </div><!-- /addons -->
+	 </div><!-- /row -->
+	 
+	
+
+	 
+</div>
