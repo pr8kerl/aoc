@@ -1,17 +1,572 @@
-<h1>Featured</h1>
+<style>
+/* this needs to be taken out to it's own CSS */
+body {
+	background-color: white !important;
+}
 
-{{! only output if they are featured }}
-{{#each listings }}
-  {{#if this.is_promoted}}
-  <h2>Name: {{ name }}</h2>
-  {{/if}}
-{{/each}}
+.addon-top {
+	margin-bottom: 30px;
+}
 
-{{! only output if the developer is Premium }}
-<h2>Premium</h2>
-{{#each listings }}
-  {{#is this.developer.level }}
-  <h2>Name: {{ this.developer.level  }}</h2>
-  {{/if}}
-{{/each}}
+.addon-top h2 {
+	line-height: 128px;
+}
 
+.add-on-navbar .container-fluid {
+	margin-left: 0;
+	padding-left: 0;
+	width: 940px;
+}
+
+.add-on-navbar a {
+	font-size: 14px;
+	font-weight: lighter;
+}
+
+.add-on-navbar a.first {
+	padding-left: 0;
+}
+
+.add-on-segment-message {
+	min-height: 288px;
+	max-height: 288px;
+	margin-bottom: 12px;
+	overflow: hidden;
+}
+
+.add-on-frame {
+	padding: 5px;
+}
+
+.add-on-line-break {
+	margin: 20px 0 20px 0;
+	font-size: 1px;
+	line-height: 1px;
+	clear: both;
+	border-bottom: 1px solid rgb(239, 239, 239);
+}
+
+.add-on-display {
+	overflow: hidden;
+	height: 160px;
+	color: rgba(32, 32, 32, 0.30);
+	border: 1px solid rgba(33, 30, 30, 0.2);
+}
+
+.add-on-logo-name {
+	margin: 0;
+	padding: 0;
+	height: 95px;
+	border-bottom: 1px solid rgb(239, 239, 239);
+}
+
+.add-on-logo-name .add-on-logo-image {
+	padding-left: 0px;
+	text-align: left;
+}
+
+.add-on-logo-name .add-on-name h3 {
+	padding-top: 5px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	vertical-align: middle;
+}
+
+.add-on-logo-name .add-on-name p {
+	margin-top: 6px;
+	font-size: 12px;
+	line-height: 16px;
+	color: rgba(34, 34, 34, 0.5);
+}
+
+.add-on-logo-image img {
+	width: 75px;
+	height: 75px;
+	margin: 5px 0 0 5px;
+	padding: 0;
+}
+
+.add-on-type-price {
+	font-size: 12px;
+	line-height: 34px;
+	height: 34px;
+	padding-top: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: rgb(34, 34, 34);
+}
+
+.add-on-type {
+	color: rgba(34, 34, 34, 0.5);
+}
+
+.add-on-applications-supported {
+	height: 34px;
+	line-height: 24px;
+	background-color: rgb(246, 246, 246);
+	border-top: 1px solid rgb(239, 239, 239);
+	padding: 0;
+	padding-left: 5px;
+}
+
+.add-on-applications-supported a img {
+	width: 24px;
+	padding: 5px 2px 2px 2px;
+	display: inline-block;
+}
+
+.add-on-summary {
+	padding: 10px 5px;
+	color: black;
+	font-size: 14px;
+	line-height: 16px;
+}
+
+
+</style>
+<script>
+/* this also needs moved */
+$( document ).ready(function() {
+	console.log("ready");
+
+	$('.add-on-display').hover(function (e) {
+	  e.preventDefault()
+	  $(this).find('.add-on-logo-name').slideToggle(300, "swing");
+	});
+
+});
+
+
+
+</script>
+<div class="addon-top">
+	<h2><strong>Add-ons</strong>: solutions that make business life easier</h2>
+	<nav class="navbar navbar-default add-on-navbar" role="navigation">
+	  <div class="container-fluid">
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	      	<li class="dropdown">
+	          <a href="#" class="dropdown-toggle first" data-toggle="dropdown">Filter by <strong>industry</strong> <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Trades &amp; Construction</a></li>
+	            <li><a href="#">Hospitality</a></li>
+	            <li><a href="#">Farming</a></li>
+	          </ul>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter by <strong>category</strong> <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">Point of Sale</a></li>
+	            <li><a href="#">Advanced Reporting</a></li>
+	            <li><a href="#">Invoices</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	      <form class="navbar-form navbar-right" role="search">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search add-ons">
+	        </div>
+	        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search</button>
+	      </form>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container -->
+	</nav>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+	  <div class="col-md-4 add-on-segment-callout">
+	  	<div class="add-on-segment-message">
+		  	<h3>Trades &amp; Construction</h3>
+		  	<p>Wouldn't it be great to know how much you really made on your last job? Need to manage your jobs, staff or vehicles?</p>
+		  	<p>Maybe you want to know how much stock  you've got in your van with the click of a mouse?</p>
+		  	<p>With our Trade &amp; Construction add-ons you can do all this and more</p>
+		</div>
+		<div class="add-on-segment-call-to-action">
+			<a href="" class="btn btn-default">View all <strong>trades &amp; contstruction</strong> add-ons</a>
+		</div>
+	  </div>
+	  <div class="col-md-8">
+	  	<!-- in here go 4 add-ons -->
+	  	<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display" id="serviceM8">
+		  		<div class="add-on-logo-name">
+		  			<div class="col-md-3 add-on-logo-image">
+		  				<img src="http://myob.com.au/addons/media/logo_override/ServiceM8AppIcon.jpg" alt="ServiceM8 logo" />
+		  			</div>
+		  			<div class="col-md-9 add-on-name">
+		  				<h3>ServiceM8</h3>
+		  			</div>
+		  		</div>
+		  		<div class="add-on-type-price">
+		  			<span class="add-on-type pull-right">Direct Integration <span class="glyphicon glyphicon-check"></span> </span>
+		  			<span class="add-on-price">From $9.99/month</span>
+		  		</div>
+		  		<div class="add-on-applications-supported">
+		  			<a href="/addons/category/14/job-management/workswith/myob-accountright-classic/">
+                    	<img alt="AccountRight Classic" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arc_2.png" title="" data-original-title="AccountRight Classic">
+                    </a>
+                    <a href="/addons/category/14/job-management/workswith/accountright-live/">
+                        <img alt="AccountRight Live" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arl_2.png" title="AccountRight Live">
+                    </a>
+                    <a href="/addons/category/14/job-management/workswith/essentials-accounting/">
+                        <img alt="Essentials Accounting" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/essentials.png" title="Essentials Accounting">
+                    </a>
+		  		</div>
+		  		<div class="add-on-summary">
+		  			<p>Smart job management for small business, create quotes and invoices on the go</p>
+		  		</div>
+		  	</div>
+		  </div>
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		<div class="add-on-logo-name">
+		  			<div class="col-md-3 add-on-logo-image">
+		  				<img src="http://myob.com.au/addons/media/logo_override/SmartFees.jpg" alt="ServiceM8 logo" />
+		  			</div>
+		  			<div class="col-md-9 add-on-name">
+		  				<h3>Smart Fees</h3>
+		  			</div>
+		  		</div>
+		  		<div class="add-on-type-price">
+		  			<span class="add-on-type pull-right">Direct Integration <span class="glyphicon glyphicon-check"></span> </span>
+		  			<span class="add-on-price">From $9.99/month</span>
+		  		</div>
+		  		<div class="add-on-applications-supported">
+		  			<a href="/addons/category/14/job-management/workswith/myob-accountright-classic/">
+                    	<img alt="AccountRight Classic" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arc_2.png" title="" data-original-title="AccountRight Classic">
+                    </a>
+		  		</div>
+		  	</div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		<div class="add-on-logo-name">
+		  			<div class="col-md-3 add-on-logo-image">
+		  				<img src="http://myob.com.au/addons/media/logo_override/adp.jpg" alt="ServiceM8 logo" />
+		  			</div>
+		  			<div class="col-md-9 add-on-name">
+		  				<h3>ADP ezLaborManager</h3>
+		  			</div>
+		  		</div>
+		  		<div class="add-on-type-price">
+		  			<span class="add-on-type pull-right">Direct Integration <span class="glyphicon glyphicon-check"></span> </span>
+		  			<span class="add-on-price">From $9.99/month</span>
+		  		</div>
+		  		<div class="add-on-applications-supported">
+		  			<a href="/addons/category/14/job-management/workswith/myob-accountright-classic/">
+                    	<img alt="AccountRight Classic" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arc_2.png" title="" data-original-title="AccountRight Classic">
+                    </a>
+                    <a href="/addons/category/14/job-management/workswith/accountright-live/">
+                        <img alt="AccountRight Live" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arl_2.png" title="AccountRight Live">
+                    </a>
+		  		</div>
+		  	</div>
+		  </div>
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		<div class="add-on-logo-name">
+		  			<div class="col-md-3 add-on-logo-image">
+		  				<img src="http://myob.com.au/addons/media/logo_override/bim_logo.png" alt="ServiceM8 logo" />
+		  			</div>
+		  			<div class="col-md-9 add-on-name">
+		  				<h3>Business Integlligence for MYOB</h3>
+		  			</div>
+		  		</div>
+		  		<div class="add-on-type-price">
+		  			<span class="add-on-type pull-right">Direct Integration <span class="glyphicon glyphicon-check"></span> </span>
+		  			<span class="add-on-price">From $9.99/month</span>
+		  		</div>
+		  		<div class="add-on-applications-supported">
+		  			<a href="/addons/category/14/job-management/workswith/myob-accountright-classic/">
+                    	<img alt="AccountRight Classic" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arc_2.png" title="" data-original-title="AccountRight Classic">
+                    </a>
+                    <a href="/addons/category/14/job-management/workswith/accountright-live/">
+                        <img alt="AccountRight Live" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arl_2.png" title="AccountRight Live">
+                    </a>
+		  		</div>
+		  	</div>
+		  </div>
+		</div>
+	  </div><!-- /4 addons -->
+	 </div><!-- /row -->
+	 
+	 <div class="add-on-line-break">&nbsp;</div>
+
+	 <div class="row">
+	  <div class="col-md-4 add-on-segment-callout">
+	  	<div class="add-on-segment-message">
+		  	<h3>Hospitality</h3>
+		  	<p>You create amazing food and serve the best coffee, you need help managing your staff rosters, making sure sales are correct and getting orders to the kitchen. </p>
+		  	<p>With our <strong>Hospitality</strong> add-ons you can manage your rosters, run payroll and manage invoices and orders easily.</p>
+		</div>
+		<div class="add-on-segment-call-to-action">
+			<a href="" class="btn btn-default">View all <strong>hospitality</strong> add-ons</a>
+		</div>
+	  </div>
+	  <div class="col-md-8">
+	  	<!-- in here go 4 add-ons -->
+	  	<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		<div class="add-on-logo-name">
+		  			<div class="col-md-3 add-on-logo-image">
+		  				<img src="http://myob.com.au/addons/media/logos/tanda_logo_1.png" alt="ServiceM8 logo" />
+		  			</div>
+		  			<div class="col-md-9 add-on-name">
+		  				<h3>Tanda</h3>
+		  			</div>
+		  		</div>
+		  		<div class="add-on-type-price">
+		  			<span class="add-on-type pull-right">Direct Integration <span class="glyphicon glyphicon-check"></span> </span>
+		  			<span class="add-on-price">From $9.99/month</span>
+		  		</div>
+		  		<div class="add-on-applications-supported">
+		  			<a href="/addons/category/14/job-management/workswith/myob-accountright-classic/">
+                    	<img alt="AccountRight Classic" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arc_2.png" title="" data-original-title="AccountRight Classic">
+                    </a>
+                    <a href="/addons/category/14/job-management/workswith/accountright-live/">
+                        <img alt="AccountRight Live" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arl_2.png" title="AccountRight Live">
+                    </a>
+                    <a href="/addons/category/14/job-management/workswith/essentials-accounting/">
+                        <img alt="Essentials Accounting" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/essentials.png" title="Essentials Accounting">
+                    </a>
+		  		</div>
+		  	</div>
+		  </div>
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		<div class="add-on-logo-name">
+		  			<div class="col-md-3 add-on-logo-image">
+		  				<img src="http://myob.com.au/addons/media/logo_override/axisedi.png" alt="ServiceM8 logo" />
+		  			</div>
+		  			<div class="col-md-9 add-on-name">
+		  				<h3>Axis EDI - eCommerce connector</h3>
+		  			</div>
+		  		</div>
+		  		<div class="add-on-type-price">
+		  			<span class="add-on-type pull-right">Direct Integration <span class="glyphicon glyphicon-check"></span> </span>
+		  			<span class="add-on-price">From $9.99/month</span>
+		  		</div>
+		  		<div class="add-on-applications-supported">
+		  			<a href="/addons/category/14/job-management/workswith/myob-accountright-classic/">
+                    	<img alt="AccountRight Classic" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arc_2.png" title="" data-original-title="AccountRight Classic">
+                    </a>
+		  		</div>
+		  	</div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		<div class="add-on-logo-name">
+		  			<div class="col-md-3 add-on-logo-image">
+		  				<img src="http://myob.com.au/addons/media/logo_override/inviitbox150x150.png" alt="ServiceM8 logo" />
+		  			</div>
+		  			<div class="col-md-9 add-on-name">
+		  				<h3>InvitBox</h3>
+		  			</div>
+		  		</div>
+		  		<div class="add-on-type-price">
+		  			<span class="add-on-type pull-right">Direct Integration <span class="glyphicon glyphicon-check"></span> </span>
+		  			<span class="add-on-price">From $9.99/month</span>
+		  		</div>
+		  		<div class="add-on-applications-supported">
+		  			<a href="/addons/category/14/job-management/workswith/myob-accountright-classic/">
+                    	<img alt="AccountRight Classic" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arc_2.png" title="" data-original-title="AccountRight Classic">
+                    </a>
+                    <a href="/addons/category/14/job-management/workswith/accountright-live/">
+                        <img alt="AccountRight Live" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/arl_2.png" title="AccountRight Live">
+                    </a>
+                    <a href="/addons/category/14/job-management/workswith/essentials-accounting/">
+                        <img alt="Essentials Accounting" data-toggle="tooltip" src="http://myob.com.au/addons/media/workswith_icons/essentials.png" title="Essentials Accounting">
+                    </a>
+		  		</div>
+		  	</div>
+		  </div>
+		  <!-- <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div> -->
+		</div>
+	  </div><!-- /4 addons -->
+	 </div><!-- /row -->
+	 
+	 <div class="add-on-line-break">&nbsp;</div>
+
+	<div class="row">
+	  <div class="col-md-4 add-on-segment-callout">
+	  	<div class="add-on-segment-message">
+		  	<h3>End of financial year</h3>
+		  	<p>The end of the financial year can be a hassle, getting all that paper work sorted, sharing data with your accountant and filling those important government documents.</p>
+		  	<p>Don't fret, we have add-ons that can help you as you sort through this time, making sure you keep sane and wrap up the year in the best way possible.</p>
+		</div>
+		<div class="add-on-segment-call-to-action">
+			<a href="" class="btn btn-default">View <strong>end of financial year</strong> add-ons</a>
+		</div>
+	  </div>
+	  <div class="col-md-8">
+	  	<!-- in here go 4 add-ons -->
+	  	<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		  <!-- <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div> -->
+		</div>
+	  </div><!-- /4 addons -->
+	 </div><!-- /row -->
+	 
+	 <div class="add-on-line-break">&nbsp;</div>
+
+	 <div class="row">
+	  <div class="col-md-4 add-on-segment-callout">
+	  	<div class="add-on-segment-message">
+		  	<h3>Invoices, paper &amp; expenses</h3>
+		  	<p>All businesses at some stage are besieged with paper. From receipts for expenses to invoices for goods purchased - paper seems to accumulate around the office.</p>
+		  	<p>Thankfully there is a better way, MYOB and our great add-ons can help automate data collection from paper and improve the process of getting the important information into your accounting software.</p>
+		  	<p>Explore some add-ons to help you get the paper under control today.</p>
+		</div>
+		<div class="add-on-segment-call-to-action">
+			<a href="" class="btn btn-default">View <strong>invoice, paper &amp; expense</strong> add-ons</a>
+		</div>
+	  </div>
+	  <div class="col-md-8">
+	  	<!-- in here go 4 add-ons -->
+	  	<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		</div>
+	  </div><!-- /4 addons -->
+	 </div><!-- /row -->
+	 
+	 <div class="add-on-line-break">&nbsp;</div>
+
+	<div class="row">
+	  <div class="col-md-4 add-on-segment-callout">
+	  	<div class="add-on-segment-message">
+		  	<h3>Salesforce.com</h3>
+		  	<p>Salesforce is an amazing CRM (customer relationship management) solution that enables your sales team (and your management) to keep on top of sales and better serve your customers.</p>
+		  	<p>With some of our great 3rd party integrators, you can now share customer details, sales history and inventory prices between MYOB AccountRight and Salesforce.com</p>
+		</div>
+		<div class="add-on-segment-call-to-action">
+			<a href="" class="btn btn-default">View all of our <strong>salesforce integrations</strong></a>
+		</div>
+	  </div>
+	  <div class="col-md-8">
+	  	<!-- in here go 4 add-ons -->
+	  	<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		</div>
+	  </div><!-- /4 addons -->
+	 </div><!-- /row -->
+	 
+	 <div class="add-on-line-break">&nbsp;</div>
+
+	 <div class="row">
+	  <div class="col-md-4 add-on-segment-callout">
+	  	<div class="add-on-segment-message">
+		  	<h3>Hospitality</h3>
+		  	<p>You create amazing food and serve the best coffee, you need help managing your staff rosters, making sure sales are correct and getting orders to the kitchen. </p>
+		  	<p>With our <strong>Hospitality</strong> add-ons you can manage your rosters, run payroll and manage invoices and orders easily.</p>
+		</div>
+		<div class="add-on-segment-call-to-action">
+			<a href="" class="btn btn-default">View all <strong>hospitality</strong> add-ons</a>
+		</div>
+	  </div>
+	  <div class="col-md-8">
+	  	<!-- in here go 4 add-ons -->
+	  	<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		  <div class="col-md-6 add-on-frame">
+		  	<div class="add-on-display">
+		  		addon
+		  	</div>
+		  </div>
+		</div>
+	  </div><!-- /4 addons -->
+	 </div><!-- /row -->
+	 
+	 <div class="add-on-line-break">&nbsp;</div>
+
+	 
+</div>
