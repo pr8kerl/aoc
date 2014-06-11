@@ -55,7 +55,7 @@ $(document).ready(function(){
           
               <div class="featured_group">
 
-              {{#each my-listings}}
+              {{#each listings}}
                 {{#if this.is_promoted}}
                   <div class="featured_tile">
 										<a href="{{ this.url }}/">
@@ -72,7 +72,7 @@ $(document).ready(function(){
 
                                 {{#each this.workswith}}
                                 <a href="/addons/workswith/fix-me/">
-                                    <img src="/addons{{ this.application.icon }}" alt="{{ this.application.name }}" data-toggle="tooltip" title="{{ this.application.name }}">
+                                    <img src="/addons{{ this.icon }}" alt="{{ this.name }}" data-toggle="tooltip" title="{{ this.name }}">
                                 </a>
 																{{/each}}
 
@@ -93,7 +93,7 @@ $(document).ready(function(){
           
             <div class="ppartner_listings">
 
-              {{#each my-listings}}
+              {{#each listings}}
                 {{#compare this.developer.level 'PP' }}
               
               <!-- paid -->
@@ -107,7 +107,7 @@ $(document).ready(function(){
                          
                                 {{#each this.workswith}}
                                 <a href="/addons/workswith/fix-me/">
-                                    <img src="/addons{{ this.application.icon }}" alt="{{ this.application.name }}" data-toggle="tooltip" title="{{ this.application.name }}">
+                                    <img src="/addons{{ this.icon }}" alt="{{ this.name }}" data-toggle="tooltip" title="{{ this.name }}">
                                 </a>
 																{{/each}}
                             
