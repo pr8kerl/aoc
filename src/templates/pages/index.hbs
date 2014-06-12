@@ -138,52 +138,24 @@ $( document ).ready(function() {
       // # exists in URL
       console.log("we hash"); 
       console.log(window.location.hash);
-    } 
+    }
 
+  
 });
+
 
 
 
 </script>
 <div class="addon-top">
-	<h2><strong>Add-ons</strong>: solutions that make business life easier</h2>
-	<nav class="navbar navbar-default add-on-navbar" role="navigation">
-	  <div class="container-fluid">
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	      	<li class="dropdown">
-	          <a href="#" class="dropdown-toggle first" data-toggle="dropdown">Filter by <strong>industry</strong> <b class="caret"></b></a>
-	          <ul class="dropdown-menu">
-	          	{{#each categories}}
-	          		{{#if this.fields.is_industry }}
-	            	<li><a href="#" id="{{ this.fields.slug }}">{{ this.fields.name }}</a></li>
-	            	{{/if}}
-	            {{/each}}
-	          </ul>
-	        </li>
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter by <strong>category</strong> <b class="caret"></b></a>
-	          <ul class="dropdown-menu">
-	          	{{#each categories}}
-	          		{{#unless this.fields.is_industry }}
-	            	<li><a href="#" id="{{ this.fields.slug }}">{{ this.fields.name }}</a></li>
-	            	{{/unless}}
-	            {{/each}}
-	          </ul>
-	        </li>
-	      </ul>
-	      <form class="navbar-form navbar-right" role="search">
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search add-ons">
-	        </div>
-	        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search</button>
-	      </form>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container -->
-	</nav>
+	<div class="well col-md-3 pull-right">
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <h3>Hello {%yourName%}!</h3>
+    </div>
+	<h2><strong>Add-ons</strong>: <span class="custom-title">solutions that make business life easier</span></h2>
+	{{> filterbar }}
 </div>
-
 <div class="container-fluid">
 	<div class="row">
 	  <div class="col-md-4 add-on-segment-callout">
@@ -194,7 +166,7 @@ $( document ).ready(function() {
 		  	<p>With our Trade &amp; Construction add-ons you can do all this and more</p>
 		</div>
 		<div class="add-on-segment-call-to-action">
-			<a href="/addons/all_index.html#category/job-management" class="btn btn-default">View all <strong>trades &amp; contstruction</strong> add-ons</a>
+			<a href="/addons/list.html#category/job-management" class="btn btn-default">View all <strong>trades &amp; contstruction</strong> add-ons</a>
 		</div>
 	  </div>
 	  <div class="col-md-8">
@@ -315,7 +287,7 @@ $( document ).ready(function() {
 		  	<p>With our <strong>Hospitality</strong> add-ons you can manage your rosters, run payroll and manage invoices and orders easily.</p>
 		</div>
 		<div class="add-on-segment-call-to-action">
-			<a href="" class="btn btn-default">View all <strong>hospitality</strong> add-ons</a>
+			<a href="/addons/list.html#industry/hospitality" class="btn btn-default">View all <strong>hospitality</strong> add-ons</a>
 		</div>
 	  </div>
 	  <div class="col-md-8">
@@ -417,7 +389,7 @@ $( document ).ready(function() {
 		  	<p>Don't fret, we have add-ons that can help you as you sort through this time, making sure you keep sane and wrap up the year in the best way possible.</p>
 		</div>
 		<div class="add-on-segment-call-to-action">
-			<a href="" class="btn btn-default">View <strong>end of financial year</strong> add-ons</a>
+			<a href="/addons/list.html#category/business-financial-planning-and-forecasting" class="btn btn-default">View <strong>end of financial year</strong> add-ons</a>
 		</div>
 	  </div>
 	  <div class="col-md-8">
@@ -460,7 +432,7 @@ $( document ).ready(function() {
 		  	<p>Explore some add-ons to help you get the paper under control today.</p>
 		</div>
 		<div class="add-on-segment-call-to-action">
-			<a href="" class="btn btn-default">View <strong>invoice, paper &amp; expense</strong> add-ons</a>
+			<a href="/addons/list.html#category/billing-invoices" class="btn btn-default">View <strong>invoice, paper &amp; expense</strong> add-ons</a>
 		</div>
 	  </div>
 	  <div class="col-md-8">
@@ -539,12 +511,12 @@ $( document ).ready(function() {
 	 <div class="row">
 	  <div class="col-md-4 add-on-segment-callout">
 	  	<div class="add-on-segment-message">
-		  	<h3>Hospitality</h3>
+		  	<h3>Point of Sale</h3>
 		  	<p>You create amazing food and serve the best coffee, you need help managing your staff rosters, making sure sales are correct and getting orders to the kitchen. </p>
 		  	<p>With our <strong>Hospitality</strong> add-ons you can manage your rosters, run payroll and manage invoices and orders easily.</p>
 		</div>
 		<div class="add-on-segment-call-to-action">
-			<a href="" class="btn btn-default">View all <strong>hospitality</strong> add-ons</a>
+			<a href="/addons/list.html#category/point-of-sale" class="btn btn-default">View all <strong>hospitality</strong> add-ons</a>
 		</div>
 	  </div>
 	  <div class="col-md-8">
