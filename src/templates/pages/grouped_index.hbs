@@ -127,12 +127,18 @@ body {
 <script>
 /* this also needs moved */
 $( document ).ready(function() {
-	console.log("ready");
 
 	$('.add-on-display').hover(function (e) {
 	  e.preventDefault()
 	  $(this).find('.add-on-logo-name').slideToggle(300, "swing");
 	});
+
+	// is there a # in the URL?
+	if(window.location.hash) {
+      // # exists in URL
+      console.log("we hash"); 
+      console.log(window.location.hash);
+    } 
 
 });
 
@@ -149,17 +155,21 @@ $( document ).ready(function() {
 	      	<li class="dropdown">
 	          <a href="#" class="dropdown-toggle first" data-toggle="dropdown">Filter by <strong>industry</strong> <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Trades &amp; Construction</a></li>
-	            <li><a href="#">Hospitality</a></li>
-	            <li><a href="#">Farming</a></li>
+	          	{{#each categories}}
+	          		{{#if this.fields.is_industry }}
+	            	<li><a href="#" id="{{ this.fields.slug }}">{{ this.fields.name }}</a></li>
+	            	{{/if}}
+	            {{/each}}
 	          </ul>
 	        </li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter by <strong>category</strong> <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Point of Sale</a></li>
-	            <li><a href="#">Advanced Reporting</a></li>
-	            <li><a href="#">Invoices</a></li>
+	          	{{#each categories}}
+	          		{{#unless this.fields.is_industry }}
+	            	<li><a href="#" id="{{ this.fields.slug }}">{{ this.fields.name }}</a></li>
+	            	{{/unless}}
+	            {{/each}}
 	          </ul>
 	        </li>
 	      </ul>
@@ -184,7 +194,7 @@ $( document ).ready(function() {
 		  	<p>With our Trade &amp; Construction add-ons you can do all this and more</p>
 		</div>
 		<div class="add-on-segment-call-to-action">
-			<a href="" class="btn btn-default">View all <strong>trades &amp; contstruction</strong> add-ons</a>
+			<a href="/addons/all_index.html#category/job-management" class="btn btn-default">View all <strong>trades &amp; contstruction</strong> add-ons</a>
 		</div>
 	  </div>
 	  <div class="col-md-8">

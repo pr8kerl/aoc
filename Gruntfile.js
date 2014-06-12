@@ -13,7 +13,6 @@ module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
   var pretty = require('pretty');
-  var yfm = require('yfm');
   var _ = require('lodash');
 
   // Project configuration.
@@ -23,15 +22,15 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     site: grunt.file.readYAML('site.yml'),
 
-    mkdata: {
-      // listings: { 
-      //   srcdir: '<%= site.pages %>/listing/*.hbs',
-      //   dest: '<%= site.data %>/listings.json'
-      // },
-      // showcase: { 
-      //   srcdir: '<%= site.pages %>/showcase/*.hbs',
-      //   dest: '<%= site.data %>/showcase.json'
-      // } // this was for making the data 
+    getjson: {
+      listings: { 
+         url: 'http://developer.myob.com/addons/json/listings/',
+         dest: '<%= site.data %>/listings.json'
+       },
+      categories: { 
+         url: 'http://developer.myob.com/addons/json/categories/',
+         dest: '<%= site.data %>/categories.json'
+      } 
     },  
 
     jshint: {
@@ -149,29 +148,51 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-prettify');
   grunt.loadNpmTasks('handlebars-helpers');
 
-  grunt.registerMultiTask('mkdata', 'read listing yfm data', function() {
-      grunt.log.writeln("utility task mkdata loads assemble data " + this.target + "[] from yfm content to allow definition of data once only within content");
-//    grunt.log.writeln(this.target + ': ' + this.data);
-//    grunt.log.writeln(this.name + ": " + this.data.srcdir);
-    var addonlistings = [];
+  grunt.registerMultiTask('getjson', 'retrieve json data', function() {
 
-    var files = grunt.file.expand(this.data.srcdir);
-    var len = files.length;
-    for (var i = 0; i < len; i++) {
-      var fmatter = yfm.read(files[i]).context;
-      grunt.log.writeln("loading yfm from file: " + files[i]);
-      addonlistings.push(fmatter);
-    }
+      grunt.log.writeln("retrieve " + this.target + "[] data");
+      var request = require('request');
+      var options = {
+        method: 'GET',
+        url: this.data.url,
+        dest: this.data.dest
+      };
+
+      // tell Grunt to wait for async task completion
+      var done = this.async();
+      request(options, function (error, response, body) {
+        if (error) {
+          // async task failure
+          done(false);
+          throw new Error(error);
+        } 
+        else {
+          grunt.log.writeln("url: " + options.url );
+          grunt.log.writeln("dest: " + options.dest );
+
+          // shuffle the result
+          var shuffled = _.shuffle(body);
+          grunt.file.write( options.dest, body );
+          // async task success
+          done(true);
+        }
+      });
+    }); 
+
+  grunt.registerMultiTask('shuffle', 'shuffle listing data', function() {
+    grunt.log.writeln("utility task to shuffle assemble data " + this.target + "[]");
+    var aoc = grunt.file.readJSON('src/data/listings.json');
     // shuffle the array to randomise the order of listing on the front page
-    var shuffled = _.shuffle(addonlistings);
+    var shuffled = _.shuffle(aoc);
     grunt.file.write(this.data.dest, JSON.stringify(shuffled) );
+  }); 
 
-  });
 
   grunt.registerTask('server', [
     'jshint',
     'clean',
-    // 'mkdata',
+    'getjson:listings',
+    'getjson:categories',
     'assemble',
     'prettify',
     'connect:livereload',
@@ -181,7 +202,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'jshint',
     'clean',
-    // 'mkdata',
+    'getjson:listings',
+    'getjson:categories',
     'assemble',
     'prettify'
   ]);

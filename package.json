@@ -36,6 +36,7 @@
     "handlebars-helpers": "^0.5.5",
     "load-grunt-tasks": "~0.4",
     "pretty": "~0.1",
+    "request": "^2.36.0",
     "time-grunt": "~0.3",
     "yfm": "~0.2"
   },

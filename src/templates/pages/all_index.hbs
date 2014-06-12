@@ -130,12 +130,58 @@ body {
 <script>
 /* this also needs moved */
 $( document ).ready(function() {
-	console.log("ready");
 
 	$('.add-on-display').hover(function (e) {
 	  e.preventDefault()
 	  $(this).find('.add-on-logo-name').slideToggle(300, "swing");
 	});
+
+
+	// is there a # in the URL?
+	if(window.location.hash) {
+
+
+     var theCategories = [ {{#each categories}} {"slug":"{{ this.fields.slug }}", "name":"{{ this.fields.name }}"}, {{/each}} {"slug":"","name":""} ];
+
+		$('.add-on-frame').hide();// show only that item
+	    var item = window.location.hash;
+	    item = item.replace('#industry/', '');
+	    item = item.replace('#category/', '');
+	    $('.'+item).show();
+
+	    // update the custom-title
+      for(key in theCategories ) {
+      	if(item === theCategories[key]['slug']) {
+      		// var name = theCategories[key]['name'];
+      		$('.custom-title').text( "for " + theCategories[key]['name'].toLowerCase() );
+      	}
+      }
+	}
+
+	// listen for a change
+	window.onhashchange = function() {
+      // hide everything
+      $('.add-on-frame').hide();
+
+     var theCategories = [ {{#each categories}} {"slug":"{{ this.fields.slug }}", "name":"{{ this.fields.name }}"}, {{/each}} {"slug":"","name":""} ];
+
+      // show only that item
+      var item = window.location.hash;
+      item = item.replace('#industry/', '');
+      item = item.replace('#category/', '');
+      $('.'+item).show();
+
+
+      // update the custom-title
+      for(key in theCategories ) {
+      	if(item === theCategories[key]['slug']) {
+      		// var name = theCategories[key]['name'];
+      		$('.custom-title').text( "for " + theCategories[key]['name'].toLowerCase() );
+      	}
+      }
+  	}
+
+
 
 });
 
@@ -143,7 +189,7 @@ $( document ).ready(function() {
 
 </script>
 <div class="addon-top">
-	<h2><strong>Add-ons</strong>: solutions that make business life easier</h2>
+	<h2><strong>Add-ons</strong>: <span class="custom-title">solutions that make business life easier</span></h2>
 	<nav class="navbar navbar-default add-on-navbar" role="navigation">
 	  <div class="container-fluid">
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -152,25 +198,31 @@ $( document ).ready(function() {
 	      	<li class="dropdown">
 	          <a href="#" class="dropdown-toggle first" data-toggle="dropdown">Filter by <strong>industry</strong> <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Trades &amp; Construction</a></li>
-	            <li><a href="#">Hospitality</a></li>
-	            <li><a href="#">Farming</a></li>
+	          	{{#each categories}}
+	          		{{#if this.fields.is_industry }}
+	            	<li><a href="#industry/{{ this.fields.slug }}" id="{{ this.fields.slug }}">{{ this.fields.name }}</a></li>
+	            	{{/if}}
+	            {{/each}}
 	          </ul>
 	        </li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter by <strong>category</strong> <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">Point of Sale</a></li>
-	            <li><a href="#">Advanced Reporting</a></li>
-	            <li><a href="#">Invoices</a></li>
+	          	{{#each categories}}
+	          		{{#unless this.fields.is_industry }}
+	            	<li><a href="#category/{{ this.fields.slug }}" id="{{ this.fields.slug }}">{{ this.fields.name }}</a></li>
+	            	{{/unless}}
+	            {{/each}}
 	          </ul>
 	        </li>
 	      </ul>
 	      <form class="navbar-form navbar-right" role="search">
-	        <div class="form-group">
+	        <div class="input-group">
 	          <input type="text" class="form-control" placeholder="Search add-ons">
+	          <span class="input-group-btn">
+		        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+		      </span>
 	        </div>
-	        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search</button>
 	      </form>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container -->
@@ -182,7 +234,7 @@ $( document ).ready(function() {
 	  <div class="col-md-12">
 	  	<!-- in here go 4 add-ons -->
 	  	{{#each listings}}
-		  <div class="col-md-4 add-on-frame">
+		  <div class="col-md-4 add-on-frame {{#each categories}} {{this.slug}} {{/each}}">
 		  	<div class="add-on-display" id="serviceM8">
 		  		<div class="add-on-logo-name">
 		  			<div class="col-md-3 add-on-logo-image">
