@@ -136,41 +136,79 @@ $( document ).ready(function() {
 	  $(this).find('.add-on-logo-name').slideToggle(300, "swing");
 	});
 
+
+	// is there a # in the URL?
+	if(window.location.hash) {
+		hideAndShow();
+	}
+
+	// listen for a change
+	window.onhashchange = function() {
+      // hide everything
+      hideAndShow();
+    }
+
 });
+
+function hideAndShow() {
+	$('.add-on-frame').hide();
+
+     var theCategories = [ {{#each categories}} {"slug":"{{ this.fields.slug }}", "name":"{{ this.fields.name }}"}, {{/each}} {"slug":"","name":""} ];
+
+      // show only that item
+      var item = window.location.hash;
+      item = item.replace('#industry/', '');
+      item = item.replace('#category/', '');
+      $('.'+item).show();
+
+
+      // update the custom-title
+      for(key in theCategories ) {
+      	if(item === theCategories[key]['slug']) {
+      		// var name = theCategories[key]['name'];
+      		$('.custom-title').text( "for " + (theCategories[key]['name'].replace('&amp;', 'and')).toLowerCase() );
+      	}
+     }
+}
+
 </script>
 <div class="addon-top">
 	<h2><strong>Add-ons</strong>: <span class="custom-title">solutions that make business life easier</span></h2>
 	{{> filterbar }}
 </div>
 
-<div class="container-fluid" ng-controller='jsonData'> 
+<div class="container-fluid" ng-controller='jsonData'>
 	<div class="row">
 	  <div class="col-md-12">
 	  	<!-- in here go 4 add-ons -->
-		  <div class="col-md-4 add-on-frame" ng-repeat="listing in listings | filter:{name:filterText}|orderBy:['listing_order']" >
+	  	{{#each listings}}
+		  <div class="col-md-4 add-on-frame {{#each categories}} {{this.slug}} {{/each}}">
 		  	<div class="add-on-display" id="serviceM8">
 		  		<div class="add-on-logo-name">
 		  			<div class="col-md-3 add-on-logo-image">
-		  				<img src="http://myob.com.au/addons{% listing.images.logo %}" alt="{% listing.name %} logo" />
+		  				<img src="http://myob.com.au/addons{{ this.images.logo }}" alt="{{ this.name }} logo" />
 		  			</div>
 		  			<div class="col-md-9 add-on-name">
-		  				<h3>{% listing.name %}</h3>
+		  				<h3>{{ this.name }}</h3>
 		  			</div>
 		  		</div>
 		  		<div class="add-on-type-price">
 		  			<span class="add-on-type pull-right">Direct Integration <span class="glyphicon glyphicon-check"></span> </span>
-		  			<span class="add-on-price">{% listing.price.comments %}</span>
+		  			<span class="add-on-price">{{ this.price.comments }}</span>
 		  		</div>
 		  		<div class="add-on-applications-supported">
-		  			<a href="" ng-repeat="application in workswith">
-                    	<img alt="{% application.name %}" data-toggle="tooltip" src="http://myob.com.au/addons{% application.icon %}" title="" data-original-title="{% application.name %}">
+		  			{{#each workswith}}
+		  			<a href="">
+                    	<img alt="{{ this.name }}" data-toggle="tooltip" src="http://myob.com.au/addons{{ this.icon }}" title="" data-original-title="{{ this.name }}">
                     </a>
+                    {{/each}}
 		  		</div>
 		  		<div class="add-on-summary">
-		  			<p>{% listing.description.summary %}</p>
+		  			<p>{{ this.description.summary }}</p>
 		  		</div>
 		  	</div>
 		  </div>
+		{{/each}} 
 		 
 	  </div><!-- /addons -->
 	 </div><!-- /row -->

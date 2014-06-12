@@ -1,0 +1,553 @@
+[
+    {
+        "pk": 3,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Advanced Reporting",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Advanced Reporting Add-Ons",
+            "seo_title": "Advanced Reporting Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "reporting, myob, accountright, kpi, business intelligence, reports",
+            "tree_id": 2,
+            "active": true,
+            "slug": "advanced-reporting",
+            "description": "Taking reporting to that next level, Advanced Reports help you see inside the data"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Asset Management",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Asset management solutions for MYOB AccountRight",
+            "seo_title": "Asset Management Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "assets, management",
+            "tree_id": 3,
+            "active": true,
+            "slug": "asset-management",
+            "description": "Better manage and understand the assets within your business with powerful add-ons"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Automotive",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Add-on solutions for the Automotive industry with MYOB AccountRight",
+            "seo_title": "Automotive Industry Add-Ons",
+            "is_industry": true,
+            "lft": 1,
+            "seo_keywords": "Add-on solutions for the Automotive industry with MYOB AccountRight",
+            "tree_id": 6,
+            "active": true,
+            "slug": "automotive",
+            "description": "Add-on solutions for the Automotive industry with MYOB AccountRight"
+        }
+    },
+    {
+        "pk": 32,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Banking",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Banking",
+            "seo_title": "Banking",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "Transfer, ABA, Money, Banking, Transaction",
+            "tree_id": 8,
+            "active": true,
+            "slug": "banking",
+            "description": "Banking"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Billing & Invoices",
+            "parent": null,
+            "level": 0,
+            "seo_description": "billing, expenses, costs, outgoings",
+            "seo_title": "Billing & Invoice Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "Bills, Expenses, Invoices, MYOB AccountRight, invoicing, billing",
+            "tree_id": 9,
+            "active": true,
+            "slug": "billing-invoices",
+            "description": "All you need to bill and pay expenses, along with sending and managing invoices"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Budgeting & Forecasting",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Business financial, planning and forecasting solutions for MYOB AccountRight",
+            "seo_title": "Budgeting & Forecasting Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "business, financial, planning, forecasting, budgets",
+            "tree_id": 13,
+            "active": true,
+            "slug": "business-financial-planning-and-forecasting",
+            "description": "Business financial, planning and forecasting"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Building & Construction",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Add-on solutions for the Building & Construction industry with MYOB AccountRight",
+            "seo_title": "Building & Construction Industry Add-Ons",
+            "is_industry": true,
+            "lft": 1,
+            "seo_keywords": "Add-on solutions for the Building & Construction industry with MYOB AccountRight",
+            "tree_id": 14,
+            "active": true,
+            "slug": "building-construction",
+            "description": "Add-on solutions for the Building & Construction industry with MYOB AccountRight"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Business Intelligence",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Gain more understanding of your business with Business Intelligence Add-Ons for MYOB",
+            "seo_title": "Business Intelligence Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "",
+            "tree_id": 15,
+            "active": true,
+            "slug": "business-intelligence",
+            "description": ""
+        }
+    },
+    {
+        "pk": 20,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Childcare",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Add-on solutions for the Childcare industry with MYOB AccountRight",
+            "seo_title": "Childcare Industry Add-Ons",
+            "is_industry": true,
+            "lft": 1,
+            "seo_keywords": "Child Care Management System",
+            "tree_id": 17,
+            "active": true,
+            "slug": "childcare",
+            "description": "Add-on solutions for the Childcare industry with MYOB AccountRight"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Credit Management",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Credit-Management",
+            "seo_title": "Credit Management",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "collection, credit, debt, AR, receivables, customer management. ",
+            "tree_id": 18,
+            "active": true,
+            "slug": "credit-management",
+            "description": "Solutions that help debt collection from customers."
+        }
+    },
+    {
+        "pk": 2,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "CRM",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Customer Relationship Management Add-Ons for MYOB",
+            "seo_title": "Customer Relationship Management Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "customer, relationships, management, sales, pipelines, sales management, resources",
+            "tree_id": 19,
+            "active": true,
+            "slug": "customer-relationship-management",
+            "description": "Get to know your customers better with strong CRM integrations and Add-Ons for MYOB business tools"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Data Synchronisation",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Let your MYOB software talk to other applications",
+            "seo_title": "Data Synchronisation Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "data migration, EDI, data sync",
+            "tree_id": 23,
+            "active": true,
+            "slug": "data-synchronisation",
+            "description": "Let your MYOB Software talk to other applications"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "E-Commerce",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Connect MYOB AccountRight to your online store",
+            "seo_title": "E-Commerce Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "internet, shopping cart, ebay, ",
+            "tree_id": 24,
+            "active": true,
+            "slug": "e-commerce",
+            "description": "Connect MYOB AccountRight to your online store"
+        }
+    },
+    {
+        "pk": 28,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Email Marketing",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Leverage the customer data in MYOB products to drive your Email Marketing",
+            "seo_title": "Email Marketing Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "Add-on solutions for Email Marketting with MYOB AccountRight Live",
+            "tree_id": 25,
+            "active": true,
+            "slug": "email-marketing",
+            "description": "Add-on solutions for Email Marketting with MYOB AccountRight Live"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Healthcare",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Add-on solutions for the Healthcare industry with MYOB AccountRight",
+            "seo_title": "Healthcare Industry Add-Ons",
+            "is_industry": true,
+            "lft": 1,
+            "seo_keywords": "Add-on solutions for the Healthcare industry with MYOB AccountRight",
+            "tree_id": 26,
+            "active": true,
+            "slug": "healthcare",
+            "description": "Add-on solutions for the Healthcare industry with MYOB AccountRight"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Hospitality",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Add-on solutions for the Hospitality industry with MYOB AccountRight",
+            "seo_title": "Hospitality Industry Add-Ons",
+            "is_industry": true,
+            "lft": 1,
+            "seo_keywords": "Add-on solutions for the Hospitality industry with MYOB AccountRight",
+            "tree_id": 27,
+            "active": true,
+            "slug": "hospitality",
+            "description": "Add-on solutions for the Hospitality industry with MYOB AccountRight"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Human Resources",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Add-on solutions for the Human Resources industry with MYOB AccountRight",
+            "seo_title": "HR Add-Ons",
+            "is_industry": true,
+            "lft": 1,
+            "seo_keywords": "Add-on solutions for the Human Resources industry with MYOB AccountRight",
+            "tree_id": 28,
+            "active": true,
+            "slug": "human-resources",
+            "description": "Add-on solutions for the Human Resources industry with MYOB AccountRight"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Inventory Management",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Add-on solutions for Inventory with MYOB AccountRight",
+            "seo_title": "Inventory Management Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "inventory, items, price",
+            "tree_id": 33,
+            "active": true,
+            "slug": "inventory-management",
+            "description": "Add-on solutions for Inventory with MYOB AccountRight"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Job Management",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Job management add-on solutions for MYOB",
+            "seo_title": "Job Management Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "jobs, job, management",
+            "tree_id": 34,
+            "active": true,
+            "slug": "job-management",
+            "description": ""
+        }
+    },
+    {
+        "pk": 12,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Legal",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Add-on solutions for the Legal industry with MYOB AccountRight",
+            "seo_title": "Legal Industry Add-Ons",
+            "is_industry": true,
+            "lft": 1,
+            "seo_keywords": "Add-on solutions for the Legal industry with MYOB AccountRight",
+            "tree_id": 35,
+            "active": true,
+            "slug": "legal",
+            "description": "Add-on solutions for the Legal industry with MYOB AccountRight"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Loyalty Rewards",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Use these Add-Ons to empower your customers through Loyalty & Rewards",
+            "seo_title": "Loyalty & Reward Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "Loyalty, rewards, retail, points, customer loyalty",
+            "tree_id": 36,
+            "active": true,
+            "slug": "loyalty-rewards",
+            "description": "Awarding loyal customers and clients"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Membership Managment",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Setup and manage members, fees and more with these Add-Ons",
+            "seo_title": "Membership Manager Industry Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "members, teams, groups, register, social club, contributors",
+            "tree_id": 37,
+            "active": true,
+            "slug": "membership-manager",
+            "description": ""
+        }
+    },
+    {
+        "pk": 27,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Mobile",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Get out of the office and still have your important data handy",
+            "seo_title": "Mobile Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "pocketPC, Palm, PDA, mobile, stock, order, time billing, ",
+            "tree_id": 38,
+            "active": true,
+            "slug": "mobile",
+            "description": "Take your software out on the road\r\n\r\n"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Network Security",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Ensure your network and data is secure with these Network Add-Ons",
+            "seo_title": "Network Security Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "firewall, spam, hosting, monitoring, network, gateway, virus, scanning.",
+            "tree_id": 39,
+            "active": true,
+            "slug": "network-security",
+            "description": "firewall, spam, hosting, monitoring, network, gateway, virus, scanning."
+        }
+    },
+    {
+        "pk": 33,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Not-for-Profit",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Not-For-Profit",
+            "seo_title": "Not-For-Profit",
+            "is_industry": true,
+            "lft": 1,
+            "seo_keywords": "Not-For-Profit",
+            "tree_id": 40,
+            "active": true,
+            "slug": "not-for-profit",
+            "description": "Not for Profit Industry"
+        }
+    },
+    {
+        "pk": 30,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Point of Sale",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Integration of Point of Sale solutions and tools with MYOB software.",
+            "seo_title": "Point of Sale",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "Integration of Point of Sale solutions and tools with MYOB software.",
+            "tree_id": 41,
+            "active": true,
+            "slug": "point-of-sale",
+            "description": "Integration of Point of Sale solutions and tools with MYOB software."
+        }
+    },
+    {
+        "pk": 25,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Standard Business Reporting",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Get your business reporting sorted with these SBR report Add-Ons",
+            "seo_title": "Standard Business Reporting Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "sbr, standard business reporting, reports, intelligence",
+            "tree_id": 42,
+            "active": true,
+            "slug": "standard-business-reporting",
+            "description": ""
+        }
+    },
+    {
+        "pk": 19,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Time Tracking and Rostering",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Manage your time and staff rostering with these Add-Ons for MYOB AccountRight",
+            "seo_title": "Time Tracking & Rostering Add-Ons",
+            "is_industry": false,
+            "lft": 1,
+            "seo_keywords": "time, tracking, hr, services, management, staff, casual, contractors",
+            "tree_id": 43,
+            "active": true,
+            "slug": "time-tracking-and-rostering",
+            "description": ""
+        }
+    },
+    {
+        "pk": 31,
+        "model": "category.category",
+        "fields": {
+            "rght": 2,
+            "name": "Tourism",
+            "parent": null,
+            "level": 0,
+            "seo_description": "Epos, Pos, Point of Sale, Admission, Tour Booking, Retail, Membership",
+            "seo_title": "Tourism Industry",
+            "is_industry": true,
+            "lft": 1,
+            "seo_keywords": "",
+            "tree_id": 44,
+            "active": true,
+            "slug": "tourism",
+            "description": "Tourism Industry"
+        }
+    }
+]
