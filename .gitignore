@@ -9,7 +9,6 @@ lib-cov
 *.yo-rc.json
 *.bak
 
-_site
 archive
 src/data/listings.json
 
